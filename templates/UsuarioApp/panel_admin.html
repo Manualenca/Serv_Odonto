@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Panel de Administración{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">
+        <i class="fas fa-cog"></i> Panel de Administración
+    </h1>
+    
+    <div class="alert alert-success">
+        <i class="fas fa-check-circle"></i>
+        Acceso permitido como <strong>Administrador</strong>
+    </div>
+    
+    <div class="card card-custom">
+        <div class="card-body">
+            <p>Esta es una página protegida solo para administradores.</p>
+            <a href="/admin/" class="btn btn-primary">
+                <i class="fas fa-tools"></i> Ir al Admin de Django
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

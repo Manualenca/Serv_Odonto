@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Historias Clínicas{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">
+        <i class="fas fa-file-medical"></i> Historias Clínicas
+    </h1>
+    
+    <div class="alert alert-info">
+        <i class="fas fa-info-circle"></i>
+        Acceso permitido como <strong>{{ user.get_rol_display }}</strong>
+    </div>
+    
+    <div class="card card-custom">
+        <div class="card-body">
+            <p>Esta es una página protegida para odontólogos y administradores.</p>
+            <p>Aquí se listarán las historias clínicas de los pacientes.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

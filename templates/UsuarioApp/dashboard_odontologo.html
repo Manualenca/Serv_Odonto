@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Panel Odontólogo{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">
+        <i class="fas fa-user-md"></i> Panel del Odontólogo
+    </h1>
+    
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card card-custom">
+                <div class="card-body">
+                    <h5><i class="fas fa-info-circle"></i> Información del Profesional</h5>
+                    <p><strong>Nombre:</strong> {{ user.get_full_name }}</p>
+                    <p><strong>Matrícula:</strong> {{ user.matricula_profesional|default:"No especificada" }}</p>
+                    <p><strong>Especialidad:</strong> {{ user.especialidad|default:"No especificada" }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row g-4">
+        <!-- Historias Clínicas -->
+        <div class="col-md-4">
+            <div class="card card-custom text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-file-medical fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Historias Clínicas</h5>
+                    <p class="card-text">Gestioná las historias clínicas de tus pacientes.</p>
+                    <a href="{% url 'UsuarioApp:historias_clinicas' %}" class="btn btn-primary btn-custom">
+                        <i class="fas fa-folder-open"></i> Abrir
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Odontogramas -->
+        <div class="col-md-4">
+            <div class="card card-custom text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-tooth fa-3x text-info mb-3"></i>
+                    <h5 class="card-title">Odontogramas</h5>
+                    <p class="card-text">Creá y editá odontogramas de pacientes.</p>
+                    <a href="#" class="btn btn-info btn-custom">
+                        <i class="fas fa-edit"></i> Gestionar
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Turnos -->
+        <div class="col-md-4">
+            <div class="card card-custom text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-calendar-alt fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Agenda</h5>
+                    <p class="card-text">Visualizá tus turnos y agenda de pacientes.</p>
+                    <a href="#" class="btn btn-success btn-custom">
+                        <i class="fas fa-calendar-check"></i> Ver Agenda
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

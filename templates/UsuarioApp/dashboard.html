@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Sistema Odontología{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-custom">
+                <div class="card-body p-5">
+                    <h1 class="mb-4">
+                        <i class="fas fa-home"></i> 
+                        Bienvenido, {{ user.get_full_name|default:user.username }}
+                    </h1>
+                    
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i>
+                        <strong>Rol:</strong> {{ user.get_rol_display }}
+                    </div>
+                    
+                    <p class="lead">Este es tu panel principal del sistema de odontología.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

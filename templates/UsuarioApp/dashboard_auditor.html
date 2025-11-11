@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Panel Auditor{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">
+        <i class="fas fa-clipboard-check"></i> Panel de Auditoría
+    </h1>
+    
+    <div class="row g-4">
+        <!-- Reportes -->
+        <div class="col-md-6">
+            <div class="card card-custom text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Reportes</h5>
+                    <p class="card-text">Accedé a los reportes y estadísticas del sistema.</p>
+                    <a href="#" class="btn btn-primary btn-custom">
+                        <i class="fas fa-file-alt"></i> Ver Reportes
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Historias Clínicas (Solo Lectura) -->
+        <div class="col-md-6">
+            <div class="card card-custom text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-file-medical fa-3x text-info mb-3"></i>
+                    <h5 class="card-title">Historias Clínicas</h5>
+                    <p class="card-text">Consultá historias clínicas (solo lectura).</p>
+                    <a href="#" class="btn btn-info btn-custom">
+                        <i class="fas fa-eye"></i> Consultar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
