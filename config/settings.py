@@ -128,3 +128,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Modelo de usuario personalizado
 AUTH_USER_MODEL = 'UsuarioApp.Usuario'
+
+# Archivos media (uploads)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# Configuración de login
+LOGIN_URL = 'UsuarioApp:login'
+LOGIN_REDIRECT_URL = 'UsuarioApp:dashboard'
+LOGOUT_REDIRECT_URL = 'UsuarioApp:login'
