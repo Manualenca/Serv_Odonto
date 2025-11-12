@@ -1,9 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.views.generic import TemplateView
+from django.contrib import messages
+from django.views.generic import TemplateView, ListView, CreateView, UpdateView
+from django.urls import reverse_lazy
+from django.db.models import Q
 from .decorators import solo_administrador, odontologo_o_admin, staff_medico
 from .mixins import SoloAdministradorMixin, OdontologoOAdminMixin
-
+from .models import Usuario
+from .forms import UsuarioCreacionForm, UsuarioEdicionForm, CambiarPasswordForm
 
 # Vista de inicio/dashboard
 @login_required
@@ -48,3 +52,149 @@ class PanelAdministracionView(SoloAdministradorMixin, TemplateView):
 class HistoriasClinicasView(OdontologoOAdminMixin, TemplateView):
     """Vista basada en clase - odontólogos y administradores"""
     template_name = 'UsuarioApp/historias_clinicas.html'
+
+# ========== GESTIÓN DE USUARIOS (Solo Administrador) ==========
+
+@solo_administrador
+def lista_usuarios(request):
+    """Lista de todos los usuarios del sistema con búsqueda y filtros"""
+    usuarios = Usuario.objects.all().order_by('-fecha_creacion')
+    
+    # Búsqueda
+    busqueda = request.GET.get('buscar', '')
+    if busqueda:
+        usuarios = usuarios.filter(
+            Q(username__icontains=busqueda) |
+            Q(first_name__icontains=busqueda) |
+            Q(last_name__icontains=busqueda) |
+            Q(email__icontains=busqueda) |
+            Q(matricula_profesional__icontains=busqueda)
+        )
+    
+    # Filtro por rol
+    rol_filtro = request.GET.get('rol', '')
+    if rol_filtro:
+        usuarios = usuarios.filter(rol=rol_filtro)
+    
+    # Filtro por estado
+    estado_filtro = request.GET.get('estado', '')
+    if estado_filtro == 'activos':
+        usuarios = usuarios.filter(activo=True)
+    elif estado_filtro == 'inactivos':
+        usuarios = usuarios.filter(activo=False)
+    
+    context = {
+        'usuarios': usuarios,
+        'busqueda': busqueda,
+        'rol_filtro': rol_filtro,
+        'estado_filtro': estado_filtro,
+        'roles': Usuario.ROLES,
+    }
+    
+    return render(request, 'UsuarioApp/lista_usuarios.html', context)
+
+
+@solo_administrador
+def crear_usuario(request):
+    """Crear un nuevo usuario"""
+    if request.method == 'POST':
+        form = UsuarioCreacionForm(request.POST, request.FILES)
+        if form.is_valid():
+            usuario = form.save()
+            messages.success(request, f'Usuario {usuario.username} creado exitosamente.')
+            return redirect('UsuarioApp:lista_usuarios')
+    else:
+        form = UsuarioCreacionForm()
+    
+    context = {
+        'form': form,
+        'titulo': 'Crear Nuevo Usuario',
+        'boton': 'Crear Usuario'
+    }
+    
+    return render(request, 'UsuarioApp/form_usuario.html', context)
+
+
+@solo_administrador
+def editar_usuario(request, pk):
+    """Editar un usuario existente"""
+    usuario = get_object_or_404(Usuario, pk=pk)
+    
+    if request.method == 'POST':
+        form = UsuarioEdicionForm(request.POST, request.FILES, instance=usuario)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Usuario {usuario.username} actualizado exitosamente.')
+            return redirect('UsuarioApp:lista_usuarios')
+    else:
+        form = UsuarioEdicionForm(instance=usuario)
+    
+    context = {
+        'form': form,
+        'usuario_editado': usuario,
+        'titulo': f'Editar Usuario: {usuario.username}',
+        'boton': 'Guardar Cambios'
+    }
+    
+    return render(request, 'UsuarioApp/form_usuario.html', context)
+
+
+@solo_administrador
+def cambiar_password_usuario(request, pk):
+    """Cambiar la contraseña de un usuario"""
+    usuario = get_object_or_404(Usuario, pk=pk)
+    
+    if request.method == 'POST':
+        form = CambiarPasswordForm(request.POST)
+        if form.is_valid():
+            nueva_password = form.cleaned_data['nueva_password']
+            usuario.set_password(nueva_password)
+            usuario.save()
+            messages.success(request, f'Contraseña de {usuario.username} actualizada exitosamente.')
+            return redirect('UsuarioApp:lista_usuarios')
+    else:
+        form = CambiarPasswordForm()
+    
+    context = {
+        'form': form,
+        'usuario_editado': usuario,
+    }
+    
+    return render(request, 'UsuarioApp/cambiar_password.html', context)
+
+
+@solo_administrador
+def toggle_usuario_activo(request, pk):
+    """Activar o desactivar un usuario"""
+    usuario = get_object_or_404(Usuario, pk=pk)
+    
+    # No permitir desactivar al superusuario
+    if usuario.is_superuser:
+        messages.error(request, 'No se puede desactivar al superusuario.')
+        return redirect('UsuarioApp:lista_usuarios')
+    
+    # No permitir desactivarse a sí mismo
+    if usuario == request.user:
+        messages.error(request, 'No podés desactivar tu propio usuario.')
+        return redirect('UsuarioApp:lista_usuarios')
+    
+    usuario.activo = not usuario.activo
+    usuario.is_active = usuario.activo  # También actualizar el is_active de Django
+    usuario.save()
+    
+    estado = "activado" if usuario.activo else "desactivado"
+    messages.success(request, f'Usuario {usuario.username} {estado} exitosamente.')
+    
+    return redirect('UsuarioApp:lista_usuarios')
+
+
+@solo_administrador
+def ver_usuario(request, pk):
+    """Ver detalles de un usuario"""
+    usuario = get_object_or_404(Usuario, pk=pk)
+    
+    context = {
+        'usuario_detalle': usuario,
+    }
+    
+    return render(request, 'UsuarioApp/ver_usuario.html', context)
