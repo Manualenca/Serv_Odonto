@@ -4,21 +4,7 @@
 
 {% block content %}
 
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h1>
-        <i class="fas fa-users"></i> Gestión de Usuarios
-    </h1>
-    <a href="{% url 'UsuarioApp:crear_usuario' %}" class="btn btn-primary btn-custom">
-        <i class="fas fa-user-plus"></i> Nuevo Usuario
-    </a>
-</div>
 
-{% if user.es_odontologo %}
-<div class="alert alert-info mb-4">
-    <i class="fas fa-info-circle"></i>
-    <strong>Nota:</strong> Como odontólogo, solo podés gestionar usuarios con rol <strong>Recepcionista</strong> y <strong>Auditor</strong>.
-</div>
-{% endif %}
 
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -29,6 +15,13 @@
             <i class="fas fa-user-plus"></i> Nuevo Usuario
         </a>
     </div>
+
+    {% if user.es_odontologo %}
+    <div class="alert alert-info mb-4">
+        <i class="fas fa-info-circle"></i>
+        <strong>Nota:</strong> Como odontólogo, solo podés gestionar usuarios con rol <strong>Recepcionista</strong> y <strong>Auditor</strong>.
+    </div>
+    {% endif %}
     
     <!-- Filtros y búsqueda -->
     <div class="card card-custom mb-4">
