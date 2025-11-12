@@ -48,3 +48,7 @@ def odontologo_o_admin(view_func):
 def staff_medico(view_func):
     """Odontólogos, recepcionistas o administradores pueden acceder"""
     return rol_requerido('administrador', 'odontologo', 'recepcionista')(view_func)
+
+def admin_o_odontologo_gestor(view_func):
+    """Administradores o odontólogos pueden gestionar usuarios (con restricciones)"""
+    return rol_requerido('administrador', 'odontologo')(view_func)

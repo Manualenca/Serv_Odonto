@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView
 from django.urls import reverse_lazy
 from django.db.models import Q
-from .decorators import solo_administrador, odontologo_o_admin, staff_medico
+from .decorators import solo_administrador, odontologo_o_admin,admin_o_odontologo_gestor, staff_medico
 from .mixins import SoloAdministradorMixin, OdontologoOAdminMixin
 from .models import Usuario
 from .forms import UsuarioCreacionForm, UsuarioEdicionForm, CambiarPasswordForm
@@ -53,12 +53,18 @@ class HistoriasClinicasView(OdontologoOAdminMixin, TemplateView):
     """Vista basada en clase - odontólogos y administradores"""
     template_name = 'UsuarioApp/historias_clinicas.html'
 
-# ========== GESTIÓN DE USUARIOS (Solo Administrador) ==========
+# ========== GESTIÓN DE USUARIOS (Administrador o Odontólogo) ==========
 
-@solo_administrador
+@admin_o_odontologo_gestor
 def lista_usuarios(request):
     """Lista de todos los usuarios del sistema con búsqueda y filtros"""
-    usuarios = Usuario.objects.all().order_by('-fecha_creacion')
+    
+    # Si es odontólogo, solo puede ver recepcionistas y auditores
+    if request.user.es_odontologo():
+        usuarios = Usuario.objects.filter(rol__in=['recepcionista', 'auditor']).order_by('-fecha_creacion')
+    else:
+        # Administradores ven todos
+        usuarios = Usuario.objects.all().order_by('-fecha_creacion')
     
     # Búsqueda
     busqueda = request.GET.get('buscar', '')
@@ -83,28 +89,54 @@ def lista_usuarios(request):
     elif estado_filtro == 'inactivos':
         usuarios = usuarios.filter(activo=False)
     
+    # Filtrar roles disponibles según el usuario
+    if request.user.es_odontologo():
+        roles_disponibles = [('recepcionista', 'Recepcionista'), ('auditor', 'Auditor')]
+    else:
+        roles_disponibles = Usuario.ROLES
+    
     context = {
         'usuarios': usuarios,
         'busqueda': busqueda,
         'rol_filtro': rol_filtro,
         'estado_filtro': estado_filtro,
-        'roles': Usuario.ROLES,
+        'roles': roles_disponibles,
     }
     
     return render(request, 'UsuarioApp/lista_usuarios.html', context)
 
 
-@solo_administrador
+@admin_o_odontologo_gestor
 def crear_usuario(request):
     """Crear un nuevo usuario"""
+    
     if request.method == 'POST':
         form = UsuarioCreacionForm(request.POST, request.FILES)
+        
+        # Si es odontólogo, validar que solo cree recepcionistas o auditores
+        if request.user.es_odontologo():
+            rol_seleccionado = request.POST.get('rol')
+            if rol_seleccionado not in ['recepcionista', 'auditor']:
+                messages.error(request, 'Solo podés crear usuarios con rol Recepcionista o Auditor.')
+                return render(request, 'UsuarioApp/form_usuario.html', {
+                    'form': form,
+                    'titulo': 'Crear Nuevo Usuario',
+                    'boton': 'Crear Usuario'
+                })
+        
         if form.is_valid():
             usuario = form.save()
             messages.success(request, f'Usuario {usuario.username} creado exitosamente.')
             return redirect('UsuarioApp:lista_usuarios')
     else:
         form = UsuarioCreacionForm()
+        
+        # Si es odontólogo, limitar las opciones de rol
+        if request.user.es_odontologo():
+            form.fields['rol'].choices = [
+                ('recepcionista', 'Recepcionista'),
+                ('auditor', 'Auditor')
+            ]
     
     context = {
         'form': form,
@@ -115,19 +147,45 @@ def crear_usuario(request):
     return render(request, 'UsuarioApp/form_usuario.html', context)
 
 
-@solo_administrador
+@admin_o_odontologo_gestor
 def editar_usuario(request, pk):
     """Editar un usuario existente"""
     usuario = get_object_or_404(Usuario, pk=pk)
     
+    # Verificar permisos: odontólogo solo puede editar recepcionistas y auditores
+    if request.user.es_odontologo():
+        if usuario.rol not in ['recepcionista', 'auditor']:
+            messages.error(request, 'No tenés permisos para editar este usuario.')
+            return redirect('UsuarioApp:lista_usuarios')
+    
     if request.method == 'POST':
         form = UsuarioEdicionForm(request.POST, request.FILES, instance=usuario)
+        
+        # Si es odontólogo, validar que no cambie el rol a admin u odontólogo
+        if request.user.es_odontologo():
+            rol_seleccionado = request.POST.get('rol')
+            if rol_seleccionado not in ['recepcionista', 'auditor']:
+                messages.error(request, 'Solo podés asignar los roles Recepcionista o Auditor.')
+                return render(request, 'UsuarioApp/form_usuario.html', {
+                    'form': form,
+                    'usuario_editado': usuario,
+                    'titulo': f'Editar Usuario: {usuario.username}',
+                    'boton': 'Guardar Cambios'
+                })
+        
         if form.is_valid():
             form.save()
             messages.success(request, f'Usuario {usuario.username} actualizado exitosamente.')
             return redirect('UsuarioApp:lista_usuarios')
     else:
         form = UsuarioEdicionForm(instance=usuario)
+        
+        # Si es odontólogo, limitar las opciones de rol
+        if request.user.es_odontologo():
+            form.fields['rol'].choices = [
+                ('recepcionista', 'Recepcionista'),
+                ('auditor', 'Auditor')
+            ]
     
     context = {
         'form': form,
@@ -139,10 +197,16 @@ def editar_usuario(request, pk):
     return render(request, 'UsuarioApp/form_usuario.html', context)
 
 
-@solo_administrador
+@admin_o_odontologo_gestor
 def cambiar_password_usuario(request, pk):
     """Cambiar la contraseña de un usuario"""
     usuario = get_object_or_404(Usuario, pk=pk)
+    
+    # Verificar permisos: odontólogo solo puede cambiar password de recepcionistas y auditores
+    if request.user.es_odontologo():
+        if usuario.rol not in ['recepcionista', 'auditor']:
+            messages.error(request, 'No tenés permisos para cambiar la contraseña de este usuario.')
+            return redirect('UsuarioApp:lista_usuarios')
     
     if request.method == 'POST':
         form = CambiarPasswordForm(request.POST)
@@ -163,10 +227,16 @@ def cambiar_password_usuario(request, pk):
     return render(request, 'UsuarioApp/cambiar_password.html', context)
 
 
-@solo_administrador
+@admin_o_odontologo_gestor
 def toggle_usuario_activo(request, pk):
     """Activar o desactivar un usuario"""
     usuario = get_object_or_404(Usuario, pk=pk)
+    
+    # Verificar permisos: odontólogo solo puede activar/desactivar recepcionistas y auditores
+    if request.user.es_odontologo():
+        if usuario.rol not in ['recepcionista', 'auditor']:
+            messages.error(request, 'No tenés permisos para activar/desactivar este usuario.')
+            return redirect('UsuarioApp:lista_usuarios')
     
     # No permitir desactivar al superusuario
     if usuario.is_superuser:
@@ -188,10 +258,16 @@ def toggle_usuario_activo(request, pk):
     return redirect('UsuarioApp:lista_usuarios')
 
 
-@solo_administrador
+@admin_o_odontologo_gestor
 def ver_usuario(request, pk):
     """Ver detalles de un usuario"""
     usuario = get_object_or_404(Usuario, pk=pk)
+    
+    # Verificar permisos: odontólogo solo puede ver recepcionistas y auditores
+    if request.user.es_odontologo():
+        if usuario.rol not in ['recepcionista', 'auditor']:
+            messages.error(request, 'No tenés permisos para ver este usuario.')
+            return redirect('UsuarioApp:lista_usuarios')
     
     context = {
         'usuario_detalle': usuario,

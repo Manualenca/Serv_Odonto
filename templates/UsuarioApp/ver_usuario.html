@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle de Usuario{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-custom">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2>
+                            <i class="fas fa-user"></i> Detalle de Usuario
+                        </h2>
+                        <div>
+                            <a href="{% url 'UsuarioApp:editar_usuario' usuario_detalle.pk %}" 
+                               class="btn btn-warning btn-custom">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            <a href="{% url 'UsuarioApp:lista_usuarios' %}" 
+                               class="btn btn-secondary btn-custom">
+                                <i class="fas fa-arrow-left"></i> Volver
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Foto de perfil -->
+                    <div class="text-center mb-4">
+                        {% if usuario_detalle.foto_perfil %}
+                        <img src="{{ usuario_detalle.foto_perfil.url }}" 
+                             alt="Foto de {{ usuario_detalle.get_full_name }}" 
+                             class="rounded-circle img-thumbnail" 
+                             style="width: 150px; height: 150px; object-fit: cover;">
+                        {% else %}
+                        <div class="rounded-circle bg-secondary d-inline-flex align-items-center justify-content-center" 
+                             style="width: 150px; height: 150px;">
+                            <i class="fas fa-user fa-4x text-white"></i>
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Información básica -->
+                    <h5 class="border-bottom pb-2 mb-3">
+                        <i class="fas fa-info-circle"></i> Información Básica
+                    </h5>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Usuario:</strong>
+                            <p>{{ usuario_detalle.username }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Nombre Completo:</strong>
+                            <p>{{ usuario_detalle.get_full_name|default:"-" }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Email:</strong>
+                            <p>{{ usuario_detalle.email|default:"-" }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Teléfono:</strong>
+                            <p>{{ usuario_detalle.telefono|default:"-" }}</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Rol y permisos -->
+                    <h5 class="border-bottom pb-2 mb-3 mt-4">
+                        <i class="fas fa-user-tag"></i> Rol y Permisos
+                    </h5>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Rol:</strong>
+                            <p>
+                                {% if usuario_detalle.rol == 'administrador' %}
+                                <span class="badge bg-danger">{{ usuario_detalle.get_rol_display }}</span>
+                                {% elif usuario_detalle.rol == 'odontologo' %}
+                                <span class="badge bg-primary">{{ usuario_detalle.get_rol_display }}</span>
+                                {% elif usuario_detalle.rol == 'recepcionista' %}
+                                <span class="badge bg-success">{{ usuario_detalle.get_rol_display }}</span>
+                                {% elif usuario_detalle.rol == 'auditor' %}
+                                <span class="badge bg-info">{{ usuario_detalle.get_rol_display }}</span>
+                                {% endif %}
+                                
+                                {% if usuario_detalle.is_superuser %}
+                                <span class="badge bg-danger ms-1">Superusuario</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Estado:</strong>
+                            <p>
+                                {% if usuario_detalle.activo %}
+                                <span class="badge bg-success">
+                                    <i class="fas fa-check-circle"></i> Activo
+                                </span>
+                                {% else %}
+                                <span class="badge bg-secondary">
+                                    <i class="fas fa-times-circle"></i> Inactivo
+                                </span>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Información profesional (si es odontólogo) -->
+                    {% if usuario_detalle.es_odontologo %}
+                    <h5 class="border-bottom pb-2 mb-3 mt-4">
+                        <i class="fas fa-user-md"></i> Información Profesional
+                    </h5>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Matrícula Profesional:</strong>
+                            <p>{{ usuario_detalle.matricula_profesional|default:"-" }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Especialidad:</strong>
+                            <p>{{ usuario_detalle.especialidad|default:"-" }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Fechas -->
+                    <h5 class="border-bottom pb-2 mb-3 mt-4">
+                        <i class="fas fa-calendar"></i> Información del Sistema
+                    </h5>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Fecha de Creación:</strong>
+                            <p>{{ usuario_detalle.fecha_creacion|date:"d/m/Y H:i" }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Última Modificación:</strong>
+                            <p>{{ usuario_detalle.fecha_modificacion|date:"d/m/Y H:i" }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Último Inicio de Sesión:</strong>
+                            <p>{{ usuario_detalle.last_login|date:"d/m/Y H:i"|default:"Nunca" }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

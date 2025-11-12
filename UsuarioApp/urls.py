@@ -15,4 +15,12 @@ urlpatterns = [
     # Ejemplos de vistas protegidas
     path('admin/panel/', views.panel_administracion, name='panel_admin'),
     path('historias-clinicas/', views.historias_clinicas, name='historias_clinicas'),
+    
+    # Gestión de usuarios (Solo Administrador)
+    path('usuarios/', views.lista_usuarios, name='lista_usuarios'),
+    path('usuarios/crear/', views.crear_usuario, name='crear_usuario'),
+    path('usuarios/<int:pk>/editar/', views.editar_usuario, name='editar_usuario'),
+    path('usuarios/<int:pk>/ver/', views.ver_usuario, name='ver_usuario'),
+    path('usuarios/<int:pk>/password/', views.cambiar_password_usuario, name='cambiar_password'),
+    path('usuarios/<int:pk>/toggle/', views.toggle_usuario_activo, name='toggle_usuario'),
 ]
