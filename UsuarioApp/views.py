@@ -274,3 +274,7 @@ def ver_usuario(request, pk):
     }
     
     return render(request, 'UsuarioApp/ver_usuario.html', context)
+
+def sesion_expirada(request):
+    """Vista que se muestra cuando la sesión expira por inactividad"""
+    return render(request, 'UsuarioApp/sesion_expirada.html')
