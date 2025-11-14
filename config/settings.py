@@ -51,6 +51,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Middleware personalizado para timeout de sesión
+    'UsuarioApp.middleware.SessionIdleTimeout', 
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -83,6 +86,32 @@ DATABASES = {
     }
 }
 
+# ============================================
+# CONFIGURACIÓN DE SEGURIDAD
+# ============================================
+
+# Sesiones
+SESSION_COOKIE_AGE = 3600  # 1 hora (en segundos)
+SESSION_SAVE_EVERY_REQUEST = True  # Renueva la sesión en cada request
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Cierra sesión al cerrar el navegador
+SESSION_COOKIE_HTTPONLY = True  # No accesible desde JavaScript
+SESSION_COOKIE_SECURE = False  # Cambiar a True en producción con HTTPS
+SESSION_COOKIE_SAMESITE = 'Lax'  # Protección contra CSRF
+
+# Cookies de seguridad
+CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SECURE = False  # Cambiar a True en producción con HTTPS
+CSRF_COOKIE_SAMESITE = 'Lax'
+
+# Tiempo de inactividad antes de logout (en segundos)
+# Si el usuario no hace nada por 30 minutos, cierra sesión automáticamente
+SESSION_IDLE_TIMEOUT = 1800  # 30 minutos
+
+# Security headers (para producción)
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+X_FRAME_OPTIONS = 'DENY'
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -93,12 +122,18 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+                'OPTIONS': {
+                'min_length': 8,  # Mínimo 8 caracteres
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+    {
+        'NAME': 'UsuarioApp.validators.CustomPasswordValidator',  # <--- Agregá esto
     },
 ]
 

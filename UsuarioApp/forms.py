@@ -1,6 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import Usuario
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError as DjangoValidationError
+
 
 
 class UsuarioCreacionForm(UserCreationForm):
@@ -44,6 +47,15 @@ class UsuarioCreacionForm(UserCreationForm):
         
         return cleaned_data
 
+    def clean_password1(self):
+        """Validar la contraseña con los validadores de Django"""
+        password = self.cleaned_data.get('password1')
+        if password:
+            try:
+                validate_password(password, self.instance)
+            except DjangoValidationError as e:
+                raise forms.ValidationError(e.messages)
+        return password
 
 class UsuarioEdicionForm(UserChangeForm):
     """Formulario para editar usuarios existentes"""

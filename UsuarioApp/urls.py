@@ -23,4 +23,7 @@ urlpatterns = [
     path('usuarios/<int:pk>/ver/', views.ver_usuario, name='ver_usuario'),
     path('usuarios/<int:pk>/password/', views.cambiar_password_usuario, name='cambiar_password'),
     path('usuarios/<int:pk>/toggle/', views.toggle_usuario_activo, name='toggle_usuario'),
+
+    # Sesión expirada
+    path('sesion-expirada/', views.sesion_expirada, name='sesion_expirada'),
 ]

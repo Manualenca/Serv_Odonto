@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Sesión Expirada{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="col-md-6">
+            <div class="card card-custom">
+                <div class="card-body p-5 text-center">
+                    <i class="fas fa-clock fa-4x text-warning mb-4"></i>
+                    <h2 class="mb-3">Sesión Expirada</h2>
+                    <p class="lead mb-4">
+                        Tu sesión ha expirado por inactividad. Por favor, volvé a iniciar sesión.
+                    </p>
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i>
+                        Por seguridad, las sesiones expiran después de 30 minutos de inactividad.
+                    </div>
+                    <a href="{% url 'UsuarioApp:login' %}" class="btn btn-primary btn-lg btn-custom">
+                        <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
