@@ -105,7 +105,7 @@ CSRF_COOKIE_SAMESITE = 'Lax'
 
 # Tiempo de inactividad antes de logout (en segundos)
 # Si el usuario no hace nada por 30 minutos, cierra sesión automáticamente
-SESSION_IDLE_TIMEOUT = 60  # 30 minutos
+SESSION_IDLE_TIMEOUT = 1800  # 30 minutos
 
 # Security headers (para producción)
 SECURE_BROWSER_XSS_FILTER = True
