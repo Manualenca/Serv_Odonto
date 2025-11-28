@@ -76,6 +76,15 @@
                         </a>
                     </li>
                     {% endif %}
+
+                    {% if user.es_odontologo or user.es_administrador or user.es_recepcionista %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'PacientesApp:lista_pacientes' %}">
+                            <i class="fas fa-users"></i> Pacientes
+                        </a>
+                    </li>
+                    {% endif %}
+
                 </ul>
                 
                 <ul class="navbar-nav">

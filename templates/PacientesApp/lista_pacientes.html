@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% block title %}Gestión de Pacientes{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>
+            <i class="fas fa-users"></i> Gestión de Pacientes
+        </h1>
+        <a href="{% url 'PacientesApp:crear_paciente' %}" class="btn btn-primary btn-custom">
+            <i class="fas fa-user-plus"></i> Nuevo Paciente
+        </a>
+    </div>
+    
+    <!-- Filtros y búsqueda -->
+    <div class="card card-custom mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label"><i class="fas fa-search"></i> Buscar</label>
+                    <input type="text" 
+                           name="buscar" 
+                           class="form-control" 
+                           placeholder="DNI, nombre, apellido, teléfono..."
+                           value="{{ busqueda }}">
+                </div>
+                
+                <div class="col-md-2">
+                    <label class="form-label"><i class="fas fa-venus-mars"></i> Sexo</label>
+                    <select name="sexo" class="form-select">
+                        <option value="">Todos</option>
+                        <option value="M" {% if sexo_filtro == 'M' %}selected{% endif %}>Masculino</option>
+                        <option value="F" {% if sexo_filtro == 'F' %}selected{% endif %}>Femenino</option>
+                        <option value="O" {% if sexo_filtro == 'O' %}selected{% endif %}>Otro</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-2">
+                    <label class="form-label"><i class="fas fa-heartbeat"></i> Obra Social</label>
+                    <select name="obra_social" class="form-select">
+                        <option value="">Todos</option>
+                        <option value="con_obra" {% if obra_social_filtro == 'con_obra' %}selected{% endif %}>Con obra social</option>
+                        <option value="sin_obra" {% if obra_social_filtro == 'sin_obra' %}selected{% endif %}>Sin obra social</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-2">
+                    <label class="form-label"><i class="fas fa-toggle-on"></i> Estado</label>
+                    <select name="estado" class="form-select">
+                        <option value="">Todos</option>
+                        <option value="activos" {% if estado_filtro == 'activos' %}selected{% endif %}>Activos</option>
+                        <option value="inactivos" {% if estado_filtro == 'inactivos' %}selected{% endif %}>Inactivos</option>
+                    </select>
+                </div>
+                
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="fas fa-filter"></i> Filtrar
+                    </button>
+                </div>
+            </form>
+            
+            {% if busqueda or sexo_filtro or estado_filtro or obra_social_filtro %}
+            <div class="mt-3">
+                <a href="{% url 'PacientesApp:lista_pacientes' %}" class="btn btn-sm btn-outline-secondary">
+                    <i class="fas fa-times"></i> Limpiar filtros
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Tabla de pacientes -->
+    <div class="card card-custom">
+        <div class="card-body">
+            {% if pacientes %}
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>DNI</th>
+                            <th>Apellido y Nombre</th>
+                            <th>Edad</th>
+                            <th>Teléfono</th>
+                            <th>Obra Social</th>
+                            <th>Estado</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for paciente in pacientes %}
+                        <tr>
+                            <td><strong>{{ paciente.dni }}</strong></td>
+                            <td>{{ paciente.apellido }}, {{ paciente.nombre }}</td>
+                            <td>{{ paciente.get_edad }} años</td>
+                            <td>
+                                <i class="fas fa-phone"></i> {{ paciente.telefono }}
+                            </td>
+                            <td>
+                                {% if paciente.tiene_obra_social %}
+                                <span class="badge bg-info">
+                                    <i class="fas fa-check"></i> {{ paciente.obra_social_id }}
+                                </span>
+                                {% else %}
+                                <span class="badge bg-secondary">Sin obra social</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if paciente.activo %}
+                                <span class="badge bg-success">
+                                    <i class="fas fa-check-circle"></i> Activo
+                                </span>
+                                {% else %}
+                                <span class="badge bg-secondary">
+                                    <i class="fas fa-times-circle"></i> Inactivo
+                                </span>
+                                {% endif %}
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group" role="group">
+                                    <a href="{% url 'PacientesApp:ver_paciente' paciente.pk %}" 
+                                       class="btn btn-sm btn-info" 
+                                       title="Ver detalles">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a href="{% url 'PacientesApp:editar_paciente' paciente.pk %}" 
+                                       class="btn btn-sm btn-warning" 
+                                       title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    {% if user.es_odontologo or user.es_administrador %}
+                                    <a href="{% url 'PacientesApp:toggle_paciente' paciente.pk %}" 
+                                       class="btn btn-sm {% if paciente.activo %}btn-danger{% else %}btn-success{% endif %}" 
+                                       title="{% if paciente.activo %}Desactivar{% else %}Activar{% endif %}"
+                                       onclick="return confirm('¿Estás seguro de {% if paciente.activo %}desactivar{% else %}activar{% endif %} este paciente?')">
+                                        <i class="fas fa-{% if paciente.activo %}ban{% else %}check{% endif %}"></i>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-3">
+                <p class="text-muted">
+                    <i class="fas fa-info-circle"></i> 
+                    Total de pacientes: <strong>{{ total_pacientes }}</strong>
+                </p>
+            </div>
+            {% else %}
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i>
+                No se encontraron pacientes con los filtros aplicados.
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

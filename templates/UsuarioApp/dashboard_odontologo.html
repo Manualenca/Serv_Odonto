@@ -50,15 +50,15 @@
             </div>
         </div>
         
-        <!-- Turnos -->
+        <!-- Pacientes -->
         <div class="col-md-4">
             <div class="card card-custom text-center h-100">
                 <div class="card-body">
-                    <i class="fas fa-calendar-alt fa-3x text-success mb-3"></i>
-                    <h5 class="card-title">Agenda</h5>
-                    <p class="card-text">Visualizá tus turnos y agenda de pacientes.</p>
-                    <a href="#" class="btn btn-success btn-custom">
-                        <i class="fas fa-calendar-check"></i> Ver Agenda
+                    <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Pacientes</h5>
+                    <p class="card-text">Gestioná el registro de pacientes.</p>
+                    <a href="{% url 'PacientesApp:lista_pacientes' %}" class="btn btn-primary btn-custom">
+                        <i class="fas fa-folder-open"></i> Ver Pacientes
                     </a>
                 </div>
             </div>

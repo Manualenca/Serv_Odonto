@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle de Paciente{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card card-custom">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2>
+                            <i class="fas fa-user"></i> Ficha de Paciente
+                        </h2>
+                        <div>
+                            <a href="{% url 'PacientesApp:editar_paciente' paciente.pk %}" 
+                               class="btn btn-warning btn-custom">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            <a href="{% url 'PacientesApp:lista_pacientes' %}" 
+                               class="btn btn-secondary btn-custom">
+                                <i class="fas fa-arrow-left"></i> Volver
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Estado del paciente -->
+                    <div class="alert {% if paciente.activo %}alert-success{% else %}alert-warning{% endif %} mb-4">
+                        <i class="fas fa-{% if paciente.activo %}check-circle{% else %}exclamation-triangle{% endif %}"></i>
+                        Estado: <strong>{% if paciente.activo %}ACTIVO{% else %}INACTIVO{% endif %}</strong>
+                    </div>
+                    
+                    <!-- Información Personal -->
+                    <h5 class="border-bottom pb-2 mb-3">
+                        <i class="fas fa-user"></i> Información Personal
+                    </h5>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Nombre Completo:</strong>
+                            <p class="lead">{{ paciente.get_nombre_completo }}</p>
+                        </div>
+                        <div class="col-md-3">
+                            <strong>DNI:</strong>
+                            <p class="lead">{{ paciente.dni }}</p>
+                        </div>
+                        <div class="col-md-3">
+                            <strong>Sexo:</strong>
+                            <p>{{ paciente.get_sexo_display }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Fecha de Nacimiento:</strong>
+                            <p>{{ paciente.fecha_nacimiento|date:"d/m/Y" }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Edad:</strong>
+                            <p><span class="badge bg-primary">{{ paciente.get_edad }} años</span></p>
+                        </div>
+                    </div>
+                    
+                    <!-- Información de Contacto -->
+                    <h5 class="border-bottom pb-2 mb-3 mt-4">
+                        <i class="fas fa-phone"></i> Información de Contacto
+                    </h5>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <strong>Teléfono:</strong>
+                            <p><i class="fas fa-phone text-success"></i> {{ paciente.telefono }}</p>
+                        </div>
+                        <div class="col-md-8">
+                            <strong>Email:</strong>
+                            <p>
+                                {% if paciente.email %}
+                                <i class="fas fa-envelope text-info"></i> {{ paciente.email }}
+                                {% else %}
+                                <span class="text-muted">No especificado</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <strong>Dirección:</strong>
+                            <p>{{ paciente.direccion|default:"No especificada" }}</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Obra Social -->
+                    <h5 class="border-bottom pb-2 mb-3 mt-4">
+                        <i class="fas fa-heartbeat"></i> Obra Social / Prepaga
+                    </h5>
+                    
+                    {% if paciente.tiene_obra_social %}
+                    <div class="alert alert-info">
+                        <i class="fas fa-check-circle"></i> <strong>Tiene cobertura</strong>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Obra Social:</strong>
+                            <p>{{ paciente.obra_social_id }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Número de Afiliado:</strong>
+                            <p>{{ paciente.numero_afiliado }}</p>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle"></i> <strong>Sin cobertura de obra social</strong>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Observaciones -->
+                    <h5 class="border-bottom pb-2 mb-3 mt-4">
+                        <i class="fas fa-notes-medical"></i> Observaciones Médicas
+                    </h5>
+                    
+                    {% if paciente.observaciones %}
+                    <div class="alert alert-secondary">
+                        {{ paciente.observaciones|linebreaks }}
+                    </div>
+                    {% else %}
+                    <p class="text-muted">Sin observaciones registradas</p>
+                    {% endif %}
+                    
+                    <!-- Información del Sistema -->
+                    <h5 class="border-bottom pb-2 mb-3 mt-4">
+                        <i class="fas fa-calendar"></i> Información del Sistema
+                    </h5>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <strong>Registrado por:</strong>
+                            <p>{{ paciente.usuario_registro.get_full_name|default:paciente.usuario_registro.username }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <strong>Fecha de Registro:</strong>
+                            <p>{{ paciente.fecha_registro|date:"d/m/Y H:i" }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <strong>Última Modificación:</strong>
+                            <p>{{ paciente.fecha_modificacion|date:"d/m/Y H:i" }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
