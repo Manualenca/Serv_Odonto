@@ -2,7 +2,35 @@ from django.db import models
 from django.core.validators import RegexValidator
 from UsuarioApp.models import Usuario
 
-
+class ObraSocial(models.Model):
+    """Modelo para gestionar obras sociales disponibles"""
+    
+    nombre = models.CharField(
+        max_length=100,
+        unique=True,
+        verbose_name='Nombre de la Obra Social'
+    )
+    
+    codigo = models.CharField(
+        max_length=20,
+        blank=True,
+        null=True,
+        verbose_name='Código',
+        help_text='Código identificador de la obra social'
+    )
+    
+    activa = models.BooleanField(
+        default=True,
+        verbose_name='Activa'
+    )
+    
+    class Meta:
+        verbose_name = 'Obra Social'
+        verbose_name_plural = 'Obras Sociales'
+        ordering = ['nombre']
+    
+    def __str__(self):
+        return self.nombre
 class Paciente(models.Model):
     """Modelo para gestionar información de pacientes"""
     
@@ -81,12 +109,13 @@ class Paciente(models.Model):
         help_text='Número de obra social o prepaga'
     )
     
-    obra_social_id = models.CharField(
-        max_length=100,
+    obra_social = models.ForeignKey(
+        ObraSocial,
+        on_delete=models.SET_NULL,
         blank=True,
         null=True,
         verbose_name='Obra Social',
-        help_text='Nombre de la obra social o prepaga'
+        help_text='Seleccione la obra social'
     )
     
     observaciones = models.TextField(
@@ -147,4 +176,4 @@ class Paciente(models.Model):
     
     def tiene_obra_social(self):
         """Verifica si el paciente tiene obra social"""
-        return bool(self.numero_afiliado and self.obra_social_id)
+        return bool(self.numero_afiliado and self.obra_social)  

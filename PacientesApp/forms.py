@@ -10,7 +10,7 @@ class PacienteForm(forms.ModelForm):
         model = Paciente
         fields = ['nombre', 'apellido', 'dni', 'fecha_nacimiento', 'sexo',
                   'telefono', 'email', 'direccion', 'numero_afiliado', 
-                  'obra_social_id', 'observaciones', 'activo']
+                  'obra_social', 'observaciones', 'activo']
         
         widgets = {
             'nombre': forms.TextInput(attrs={
@@ -48,9 +48,8 @@ class PacienteForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Número de afiliado'
             }),
-            'obra_social_id': forms.TextInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Nombre de la obra social'
+            'obra_social': forms.Select(attrs={
+                'class': 'form-select'
             }),
             'observaciones': forms.Textarea(attrs={
                 'class': 'form-control',
@@ -98,11 +97,11 @@ class PacienteForm(forms.ModelForm):
         """Validaciones adicionales"""
         cleaned_data = super().clean()
         numero_afiliado = cleaned_data.get('numero_afiliado')
-        obra_social = cleaned_data.get('obra_social_id')
+        obra_social = cleaned_data.get('obra_social')
         
         # Si tiene número de afiliado, debe tener obra social y viceversa
         if numero_afiliado and not obra_social:
-            self.add_error('obra_social_id', 'Debe especificar la obra social.')
+            self.add_error('obra_social', 'Debe especificar la obra social.')
         
         if obra_social and not numero_afiliado:
             self.add_error('numero_afiliado', 'Debe especificar el número de afiliado.')

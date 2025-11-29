@@ -1,7 +1,12 @@
 from django.contrib import admin
-from .models import Paciente
+from .models import Paciente, ObraSocial
 
-
+@admin.register(ObraSocial)
+class ObraSocialAdmin(admin.ModelAdmin):
+    list_display = ['nombre', 'codigo', 'activa']
+    list_filter = ['activa']
+    search_fields = ['nombre', 'codigo']
+    
 @admin.register(Paciente)
 class PacienteAdmin(admin.ModelAdmin):
     list_display = ['dni', 'apellido', 'nombre', 'telefono', 'fecha_nacimiento', 'activo', 'fecha_registro']

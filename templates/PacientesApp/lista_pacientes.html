@@ -100,7 +100,7 @@
                             <td>
                                 {% if paciente.tiene_obra_social %}
                                 <span class="badge bg-info">
-                                    <i class="fas fa-check"></i> {{ paciente.obra_social_id }}
+                                    <i class="fas fa-check"></i> {{ paciente.obra_social.nombre }}
                                 </span>
                                 {% else %}
                                 <span class="badge bg-secondary">Sin obra social</span>
