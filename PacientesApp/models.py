@@ -31,6 +31,116 @@ class ObraSocial(models.Model):
     
     def __str__(self):
         return self.nombre
+class CategoriaAntecedente(models.Model):
+    """Categorías para organizar los antecedentes médicos"""
+    
+    CATEGORIAS = [
+        ('enfermedad_cronica', 'Enfermedad Crónica'),
+        ('its', 'Infección de Transmisión Sexual'),
+        ('alergia', 'Alergia'),
+        ('medicacion', 'Medicación Actual'),
+    ]
+    
+    nombre = models.CharField(
+        max_length=100,
+        verbose_name='Nombre'
+    )
+    
+    categoria = models.CharField(
+        max_length=20,
+        choices=CATEGORIAS,
+        verbose_name='Categoría'
+    )
+    
+    descripcion = models.TextField(
+        blank=True,
+        null=True,
+        verbose_name='Descripción',
+        help_text='Información adicional sobre este antecedente'
+    )
+    
+    requiere_precaucion = models.BooleanField(
+        default=False,
+        verbose_name='Requiere Precaución Especial',
+        help_text='Marca si este antecedente requiere precauciones especiales en el tratamiento'
+    )
+    
+    activo = models.BooleanField(
+        default=True,
+        verbose_name='Activo'
+    )
+    
+    orden = models.IntegerField(
+        default=0,
+        verbose_name='Orden de visualización'
+    )
+    
+    class Meta:
+        verbose_name = 'Categoría de Antecedente'
+        verbose_name_plural = 'Categorías de Antecedentes'
+        ordering = ['categoria', 'orden', 'nombre']
+    
+    def __str__(self):
+        return f"{self.nombre} ({self.get_categoria_display()})"
+
+
+class AntecedentePaciente(models.Model):
+    """Relación entre paciente y sus antecedentes médicos"""
+    
+    paciente = models.ForeignKey(
+        'Paciente',
+        on_delete=models.CASCADE,
+        related_name='antecedentes_medicos',
+        verbose_name='Paciente'
+    )
+    
+    antecedente = models.ForeignKey(
+        CategoriaAntecedente,
+        on_delete=models.CASCADE,
+        verbose_name='Antecedente'
+    )
+    
+    observaciones_generales = models.TextField(
+        blank=True,
+        null=True,
+        verbose_name='Observaciones Generales',
+        help_text='Otras observaciones no categorizadas'
+    )
+    
+    fecha_diagnostico = models.DateField(
+        blank=True,
+        null=True,
+        verbose_name='Fecha de Diagnóstico'
+    )
+    
+    activo = models.BooleanField(
+        default=True,
+        verbose_name='Activo',
+        help_text='Si el antecedente está actualmente presente'
+    )
+    
+    fecha_registro = models.DateTimeField(
+        auto_now_add=True,
+        verbose_name='Fecha de Registro'
+    )
+    
+    usuario_registro = models.ForeignKey(
+        Usuario,
+        on_delete=models.SET_NULL,
+        null=True,
+        verbose_name='Usuario que Registró'
+    )
+    
+    class Meta:
+        verbose_name = 'Antecedente del Paciente'
+        verbose_name_plural = 'Antecedentes de los Pacientes'
+        ordering = ['-activo', 'antecedente__categoria', 'antecedente__nombre']
+        unique_together = ['paciente', 'antecedente']
+    
+    def __str__(self):
+        return f"{self.paciente.get_nombre_completo()} - {self.antecedente.nombre}"
+
+
 class Paciente(models.Model):
     """Modelo para gestionar información de pacientes"""
     

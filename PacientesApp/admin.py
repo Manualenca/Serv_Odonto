@@ -1,5 +1,24 @@
 from django.contrib import admin
-from .models import Paciente, ObraSocial
+from .models import Paciente, ObraSocial, CategoriaAntecedente, AntecedentePaciente
+
+@admin.register(CategoriaAntecedente)
+class CategoriaAntecedenteAdmin(admin.ModelAdmin):
+    list_display = ['nombre', 'categoria', 'requiere_precaucion', 'activo', 'orden']
+    list_filter = ['categoria', 'requiere_precaucion', 'activo']
+    search_fields = ['nombre', 'descripcion']
+    ordering = ['categoria', 'orden', 'nombre']
+
+@admin.register(AntecedentePaciente)
+class AntecedentePacienteAdmin(admin.ModelAdmin):
+    list_display = ['paciente', 'antecedente', 'activo', 'fecha_registro']
+    list_filter = ['activo', 'antecedente__categoria', 'fecha_registro']
+    search_fields = ['paciente__nombre', 'paciente__apellido', 'antecedente__nombre']
+    readonly_fields = ['fecha_registro', 'usuario_registro']
+    
+    def save_model(self, request, obj, form, change):
+        if not change:
+            obj.usuario_registro = request.user
+        super().save_model(request, obj, form, change)
 
 @admin.register(ObraSocial)
 class ObraSocialAdmin(admin.ModelAdmin):
