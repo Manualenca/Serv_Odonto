@@ -1,0 +1,353 @@
+I – CONSULTAS	01.01.00	CONSULTA ODONTOLOGICA	 Confección de historia clínica, datos filiatorios del paciente y DNI, Odontograma, examen clínico (tejidos duros y tejidos blandos, examen funcional, antecedentes médicos y familiares). Deberá reflejar el estado bucal actual, de esta se desprenderá el diagnóstico y plan de tratamiento, se informará al paciente los pasos de su tratamiento para luego firmar el consentimiento informado del mismo. Si se codifica este código, no se podrá usar los códigos de consulta de cada capítulo, los mismos serán usados por los niveles de mayor complejidad o por los profesionales a quienes son derivados estos pacientes. 
+I – CONSULTAS	01.00.01	CPO-CEO	Se usará para la revisión de la boca y la realización de estos índices, se colocará uno por paciente. No deberá codificarse junto al código 01.01.00.
+I – CONSULTAS	01.00.02	MEDICACION	.
+I – CONSULTAS	01.02.00	CONSULTA COMPLEMENTARIA	 Consultas ulteriores para la recepción de estudios indicados a los fines de complementar el diagnóstico y plan detratamiento, y evaluación de nuevas situaciones de riesgo y/o clínicas. 
+I – CONSULTAS	01.03.00	CONSULTA A DOMICILIO	 Atención de pacientes impedidos de trasladarse al consultorio odontológico, por lo cual necesitan el abordaje en su domicilio. 
+I – CONSULTAS	01.04.00	URGENCIAS	 Consulta de urgencia. Son un conjunto de patologías bucomaxilofaciales, de aparición súbita, de etiología múltiple, que se manifiestan principalmente por dolor agudo y provocan una demanda espontanea de atención. Como referencia comprende, Pericoronaritis, drenaje de flemones, hemorragias, apertura de cámara pulpar y conductos, alveolitis etc. 
+I – CONSULTAS	01.05.00	INTERCONSULTA	 Consulta de derivación de un profesional para abordaje de un área de la odontología en particular, en la que el profesional presenta experiencia específica. El profesional con experiencia es quien usara este código en el momento de la consulta. También se utilizará en pacientes hospitalizados y no debe codificarse junto al 01.01.00. 
+I – CONSULTAS	01.06.00	CONSULTA PARA EMISIÓN DE CERTIFICACIONES	Consulta para la emisión de certificaciones que dan cuenta del estado de salud o enfermedad bucal como certificados para el ingreso escolar, pre ocupacionales, pre quirúrgicos y otros.
+II – OPERATORIA CAVIDADES SIMPLES 	02.01.01	RESTAURACIÓN SIMPLE AMALGAMA	.
+II – OPERATORIA CAVIDADES SIMPLES	02.01.02	RESTAURACIÓN SIMPLE CON IONÓMERO VITREO	.
+II – OPERATORIA CAVIDADES SIMPLES	02.01.03	 RESTAURACIÓN SIMPLE CON RESINAS COMPUESTAS FOTOPOLIMERIZABLES 	.
+II – OPERATORIA CAVIDADES COMPUESTAS 	02.02.01	RESTAURACION COMPUESTA AMALGAMA	.
+II – OPERATORIA CAVIDADES COMPUESTAS 	02.02.02	RESTAURACIÓN CON IONÓMERO VITREO	.
+II – OPERATORIA CAVIDADES COMPUESTAS 	02.02.03	RESTAURACIÓN CON RESINAS COMPUESTAS	.
+II – OPERATORIA CAVIDADES COMPLEJAS 	02.03.01	 RESTAURACIÓN COMPLEJA AMALGAMA 	.
+II – OPERATORIA CAVIDADES COMPLEJAS	02.03.02	RESTAURACIÓN CON IONÓMERO VITREO	.
+II – OPERATORIA CAVIDADES COMPLEJAS	02.03.03	RESTAURACIÓN CON RESINAS COMPUESTAS	.
+II – OPERATORIA	02.04.00	RECONSTRUCCIÓN PLÁSTICA POST ENDODONCIA	Comprende la restauración plástica post endodóntica con o sin conector. No incluye la instalación del perno o poste preformado.
+II – OPERATORIA	02.05.00	CARILLA DIRECTA EN RESINA	Comprende aquellas restauraciones en las que se encuentra alterada la superficie vestibular de una pieza dentaria.
+II – OPERATORIA	02.06.00	CLAREAMIENTO DENTARIO EXTERNO	Procedimiento de clareamiento externo de uno o ambos arcos dentarios, utilizando procedimientos convencionales y/o con tecnología aplicada. No podrá ser realizado nuevamente antes de los veinticuatro (24) meses.
+II – OPERATORIA	02.07.00	CLAREAMIENTO DENTARIO INTERNO EN DIENTE ENDODONCIADO	Procedimiento de clareamiento dentario en piezas dentarias tratadas endodónticamente que sea necesario recuperar su cromática para luego realizar su restauración definitiva.
+III- ENDODONCIA	03.00.00	CONSULTA Y DIAGNOSTICO EN ENDODONCIA	Evaluación clínica y radiográfica que permite definir la necesidad o no del tratamiento endodóntico. Solo podrán codificar los especialistas en endodoncia y/o quienes vayan a realizar dicho tratamiento. No se podrá usar el 01.01.00.
+III- ENDODONCIA	03.00.01	CONSULTA ENDODÓNTICA DE URGENCIA	 Tratamiento que involucra todos los procedimientos necesarios para aliviar el dolor de origen endodóntico. En el caso que el profesional que resuelve la urgencia no haya realizado el tratamiento podrá solicitar la rx correspondiente para su diagnóstico y tratamiento. 
+III- ENDODONCIA	03.00.02	EVALUACIÓN CLÍNICA RADIOGRÁFICO A DISTANCIA	 Es el control clínico y radiográfico a distancia del estado de la zona periapical, posteriormente a un tratamiento endodóntico en los casos en que se observen lesiones eriapicales, debiéndose continuar el mismo hasta su remisión o bien hasta su eliminación definitiva. 
+III- ENDODONCIA	03.01.00	TRATAMIENTO DE UN CONDUCTO	Incluye las maniobras operatorias de limpieza, conformación y obturación con instrumental manual endodóntico en elementos dentarios de un conducto.
+III- ENDODONCIA	03.02.00	TRATAMIENTOS DE DOS CONDUCTOS	 Incluye las maniobras operatorias de limpieza, conformación y obturación endodóntico con instrumental manual en elementos dentarios de dos conductos. 
+III- ENDODONCIA	03.03.00	TRATAMIENTOS DE TRES CONDUCTOS	 Incluye las maniobras operatorias de limpieza, conformación y obturación endodóntico con instrumental manual en elementos dentarios de tres conductos. 
+III- ENDODONCIA	03.04.00	 TRATAMIENTOS DE MAS DE TRES CONDUCTOS 	 Incluye las maniobras operatorias de limpieza, conformación y obturación endodóntico con instrumental manual en elementos dentarios de más tres conductos. 
+III- ENDODONCIA	03.05.00	RESOLUCIÓN DE COMPLEJIDAD AGREGADA	Dificultades de orden general y/o local que condicionen el tratamiento endodóntico. Las mismas deben estar refrendadas en la historia clínica del paciente.
+III- ENDODONCIA	03.06.00	DESOBTURACIÓN TOTAL	Remoción del material de obturación del conducto con el objetivo de la reintervención endodóntica.
+III- ENDODONCIA	03.07.00	DESOBTURACIÓN PARCIAL	Remoción parcial del material de obturación del conducto con el objetivo de la preparación para anclaje protético intra radicular.
+III- ENDODONCIA	03.08.00	PROTECCIÓN PULPAR DIRECTA	Protección de una pulpa sana expuesta accidentalmente.
+III- ENDODONCIA	03.09.00	BIOPULPECTOMÍA PARCIAL	Eliminación parcial de la pulpa coronaria en dientes permanentes jóvenes. Técnica de Cveck. Apexogenesis incompleta.
+III- ENDODONCIA	03.10.00	APICOFORMACIÓN	Tratamiento endodóntico que induce el cierre apical en elementos dentarios con apexificación incompleta y pulpa necrótica.
+III- ENDODONCIA	03.11.00	RETIRO DE ELEMENTOS QUE IMPIDEN EL ABORDAJE ENDODÓNTICO	Maniobra para la remoción de elementos rígidos que dificultan el acceso al o los conductos radiculares para su tratamiento.
+III- ENDODONCIA	03.12.00	MEDICACIÓN INTERMEDIA	Medicación intraconducto entre sesiones.
+III- ENDODONCIA	03.13.00	ENDODONCIA REGENERATIVA VÍA ENDODÓNTICA	 Se realiza en piezas dentales con necrosis pulpar y lesión perirradicular radiológicamente comprobable, utilizando para la obturación Biomateriales con acción terapéutica y reabsorbibles en el sitio de la lesión. 
+III- ENDODONCIA	03.14.00	ENDODONCIA REGENERATIVA VÍA EXTERNA	 Se realiza con curetaje apical, previo con la colocación Biomateriales con acción terapéutica y reabsorbibles en el sitio de la lección. Todas las prácticas de endodoncia, deben estar acompañadas con 2 placas RX como mínimo con hasta 4 placas RX. 
+IV- PROTESIS FIJA	04.00.00	CONSULTA DE DIAGNÓSTICO	 Convencionalmente los diseños protéticos se clasifican en: prótesis fija, removible 
+IV- PROTESIS FIJA	04.00.01	TALLADO	Preparación del elemento dentario. Se podrá codificar uno por cada elemento Se usará para prótesis fija, (restauraciones parcial coronarias y coronas).
+IV- PROTESIS FIJA	04.00.02	TOMA DE IMPRESIÓN Y ANTAGONISTAS	.
+IV- PROTESIS FIJA	04.00.03	PRUEBA CLINICA Y TOMA DE COLOR	.
+IV- PROTESIS FIJA	04.00.04	PRUEBA CLINICA, CEMENTADO	.
+IV- PROTESIS FIJA	04.01.01	REGISTRO Y MONTAJE CON FINES DE DIAGNOSTICO O TRATAMIENTO	 Deben obtenerse registro en materiales estables, que no sufran distorsiones, Es el tiempo destinado al uso de articuladores entendiendo por tales a elementos mecánicos en los que están representados los maxilares, superior e inferior, y ambas ATM, preparados para recibir modelos dentales, y cuyo objetivo es reproducir los movimientos mandibulares y las relaciones oclusales dentarias estáticas y dinámicas entre ambos maxilares 
+IV- PROTESIS FIJA	04.01.02	ARTICULADO DE DIAGNOSTICO	Es la maniobra que se realiza utilizando un enfilado y/o encerado diagnostico con el objetivo de determinar la posición espacial ideal de los distintos grupos dentarios. No necesariamente deben estar montados en articuladores semi ajustables.
+IV- PROTESIS FIJA	04.01.03	 RESTAURACION PARCIAL CORONARIA PROCESADA EN LABORATORIO (RESINA) 	 Restauración surgida bajo la prevalencia del concepto de odontología mínimamente invasiva en conjunto con los beneficios clínicos de la adhesión, más allá del número de caras del diente que reponga, construida en el laboratorio dental y caracterizada por tener como material la resina. 
+IV- PROTESIS FIJA	04.01.04	RESTAURACION PARCIAL CORONARIA PROCESADA EN LABORATORIO (COLADA)	Restauración surgida bajo la prevalencia del concepto de odontología mínimamente invasiva en conjunto con los beneficios clínicos de la adhesión, más allá del número de caras del diente que reponga, construida en el laboratorio dental y caracterizada por la técnica de colada.
+IV- PROTESIS FIJA	04.01.05	 RESTAURACION PARCIAL CORONARIA PROCESADA  EN LABORATORIO (CERÁMICA) 	Restauración surgida bajo la prevalencia del concepto de odontología mínimamente invasiva en conjunto con los beneficios clínicos de la adhesión, más allá del número de caras del diente que reponga, construida en el laboratorio dental y caracterizada por tener como material la cerámica.
+IV- PROTESIS FIJA	04.01.06	PERNO MUÑON SIMPLE	.
+IV- PROTESIS FIJA	04.01.07	PERNO MUÑON SECCIONADO	.
+IV- PROTESIS FIJA	04.01.08	POSTES DE FIBRA O PREFORMADO	.
+IV- PROTESIS FIJA	04.01.09	CORONA PROVISORIA	.
+IV- PROTESIS FIJA	04.01.10	CORONA EN RESINA ACRILICA	.
+IV- PROTESIS FIJA	04.01.11	CORONA COLADA	.
+IV- PROTESIS FIJA	04.01.12	CORONA CERAMO METALICA	.
+IV- PROTESIS FIJA	04.01.13	CORONA CERAMICA	.
+IV- PROTESIS FIJA	04.01.14	TRAMO DE PUENTE COLADO	Incluye pieza metálica y acrílico.
+IV- PROTESIS FIJA	04.01.15	 TRAMO DE PUENTE CERAMO METALICO 	Incluye pieza metálica y cerámica.
+IV- PROTESIS FIJA	04.01.16	 TRAMO DE PUENTE CERAMICO 	Incluye pieza cerámica.
+IV- PROTESIS REMOVIBLE PARCIAL	04.00.05	TALLADO DE APOYOS	.
+IV- PROTESIS REMOVIBLE PARCIAL	04.00.06	TOMA DE IMPRESIÓN Y CONFECCION DE MODELOS	.
+IV- PROTESIS REMOVIBLE PARCIAL	04.00.07	RELACIONES INTERMAXILARES TOMA COLOR	.
+IV- PROTESIS REMOVIBLE PARCIAL	04.00.09	PRUEBA DEL ENFILADO	.
+IV- PROTESIS REMOVIBLE PARCIAL	04.00.10	INSTALACION	.
+IV- PROTESIS REMOVIBLE PARCIAL	04.00.11	CONTROLES	.
+IV- PROTESIS REMOVIBLE PARCIAL	04.02.01	PROTESIS PARCIAL REMOVIBLE DE ESTRUCTURA SIMPLE EN RESINA ACRILICA	.
+IV- PROTESIS REMOVIBLE PARCIAL	04.02.02	 PROTESIS PARCIAL REMOVIBLE DE ESTRUCTURA SIMPLE EN OTROS MATERIALES 	.
+IV- PROTESIS REMOVIBLE PARCIAL	04.02.03	PROTESIS PARCIAL REMOVIBLE ESQUELETICA PROTESIS COMPLETA (DENTRO DE PROTESIS REMOVIBLE)	 El esqueleto para esta práctica se obtiene por colado. La aleación habitual de elección es la de cobalto-cromomolibdeno. En la codificación aclarar a que maxilar corresponde. Existen pasos clínicos o intermedios en cada código, los cuales serán codificados para determinar las actividades que realizan los profesionales en los servicios de salud, en cada control o sesión de los diferentes tipos de tratamientos protéticos. 
+IV- PROTESIS REMOVIBLE PARCIAL	04.00.11	IMPRESION DEFINITIVA	.
+IV- PROTESIS REMOVIBLE PARCIAL	04.00.12	TOMA DE COLOR	.
+IV- PROTESIS REMOVIBLE PARCIAL	04.00.13	PRUEBA DEL ENFILADO	.
+IV- PROTESIS REMOVIBLE PARCIAL	04.00.14	INSTALACION	.
+IV- PROTESIS REMOVIBLE PARCIAL	04.00.15	CONTROLES	.
+IV- PROTESIS REMOVIBLE COMPLETA	04.02.04	PROTESIS REMOVIBLE COMPLETA SUPERIOR EN RESINA ACRILICA	.
+IV- PROTESIS REMOVIBLE COMPLETA	04.02.05	PROTESIS REMOVIBLE COMPLETA INFERIOR EN RESINA ACRILICA	.
+IV- PROTESIS REMOVIBLE COMPLETA	04.02.06	PROTESIS REMOVIBLE COMPLETA SUPERIOR EN OTROS MATERIALES	 Se refiere a prótesis superior cuya estructura está dada por un solo material y que admiten ser construidas en diversos materiales que tienen procesos de construcción diferentes a la resina acrílica, tales como nylon (flexibles), sistemas de inyección de resinas mejoradas y polimerización por fotocurado. 
+IV- PROTESIS REMOVIBLE COMPLETA	04.02.07	PROTESIS REMOVIBLE COMPLETA INFERIOR EN OTROS MATERIALES	 Se refiere a prótesis superior cuya estructura está dada por un solo material y que admiten ser construidas en diversos materiales que tienen procesos de construcción diferentes a la resina acrílica, tales como nylon (flexibles), sistemas de inyección de resinas mejoradas y polimerización por fotocurado. 
+IV- PROTESIS INMEDIATA	04.02.08	 PROTESIS INMEDIATA PARCIAL EN RESINA ACRILICA 	.
+IV- PROTESIS INMEDIATA	04.02.09	PROTESIS INMEDIATA PARCIAL EN OTROS MATERIALES	Se refiere a prótesis cuya estructura está dada por un solo material y que admiten ser construidas en diversos materiales que tienen procesos de construcción diferentes. Por ejemplo, nylon (flexibles), sistemas de inyección de resinas mejoradas y polimerización por fotocurado.
+IV- PROTESIS INMEDIATA	04.02.10	 PROTESIS INMEDIATA COMPLETA EN RESINA ACRILICA 	.
+IV- PROTESIS INMEDIATA	04.02.11	PROTESIS INMEDIATA COMPLETA EN OTROS MATERIALES	Al igual que una prótesis completa superior o inferior en otros materiales, debe restaurar la función masticatoria y fonética y devolver el aspecto facial (estética) en diversos materiales que tienen procesos de construcción diferentes. Por ejemplo, nylon (flexibles), sistemas de inyección de resinas mejoradas y polimerización por fotocurado.
+IV- REPARACIONES	04.02.12	REPARACIONES CLINICAS	 Son las realizadas por el odontólogo en su ámbito clínico de trabajo sin necesidad de delegar la reparación en un técnico dental. 
+IV- REPARACIONES	04.02.13	REPARACIONES DE LABORATORIO	 Son las realizadas por el odontólogo que implican el delegar la reparación en un técnico dental. Implican habitualmente la obtención de un modelo de trabajo. Incluyen el recambio dealgún retenedor o la reposición de algún diente comercial. 
+IV- REPARACIONES	04.02.14	RECAMBIO DE RETENCION DIRECTA	Puede realizarse en el ámbito clínico o por su complejidad delegarla en el laboratorio.
+IV- REPARACIONES	04.02.15	MODIFICACION DE PROTESIS EXISTENTE	 Está referido a los casos en que debido a la modificación del terreno protético sobre el cual la prótesis removible fue construida, la misma debe ser adecuada por medio de agregado de retenedores o dientes comerciales para cumplir con su función. 
+IV- REPARACIONES	04.02.16	REBASADO	.
+OTRAS PRÁCTICAS DE PROTESIS	04.02.17	AMPLIACION ACONDICIONADOR DE TEJIDOS	Debe considerarse como un rebasado temporario logrado a partir de un material con una acción medicamentosa por lo que logra una mejora del estado gingival. Por esta acción antinflamatoria se va produciendo una desadaptación paulatina por la que se debe volver a cargar el material cada cinco (5) días hasta la obtención.
+OTRAS PRÁCTICAS DE PROTESIS	04.03.01	CUBETA INDIVIDUAL	 Están indicadas para los casos en que cubetas comerciales no puedan obtenerse un correcto modelo de trabajo. Construirlas implica previamente una impresión que permita obtener un modelo preliminar para luego realizar sobre él un diseño. Puede ser su construcción en varios materiales. Por ejemplo, entre otros, resina fotopolimerizable, polivinilica (termoformada), de autocurado o termocurado. Una cubeta debe tener: 1) rigidez; 2) estabilidad; y 3) extensión correcta. 
+OTRAS PRÁCTICAS DE PROTESIS	04.03.02	PLACA TERMOFORMADA	Es una placa de descanso o miorrelajante realizada por termoformación sobre un modelo de yeso (copia de la boca del paciente). Requiere 2 sesiones de tratamiento como mínimo.
+OTRAS PRÁCTICAS DE PROTESIS	04.03.03	CONFECCION E INSTALACION DE PLACA MIORELAJANTE	.
+OTRAS PRÁCTICAS DE PROTESIS	04.03.04	LLAVE DE TRANSFERENCIA	 Es estructura de acrílico que permite transferir del modelo a la boca la posición de postes y perno, facilitando la ubicación de los mismos. 
+OTRAS PRÁCTICAS DE PROTESIS	04.03.05	 REINSTALACION DE PROTESIS FIJAS CONVENCIONAL 	 Este código se refiere a cementar nuevamente una prótesis fija (perno, corona, puente) que se haya descementado. Requiere una sesión de tratamiento. 
+OTRAS PRÁCTICAS DE PROTESIS	04.03.06	 REMOCION DE ELEMENTOS PROTESICOS PREEXISTENTE 	Es la acción de retirar pernos muñones o coronas defectuosas. Puede requerir más de una sesión de tratamiento.
+IV-PROTESIS SOBRE IMPLANTES	04.04.01	COLOCACION DE PILAR TEMPORARIO MAS CORONA TEMPORARIA	.
+IV-PROTESIS SOBRE IMPLANTES	04.04.02	TOMA DE IMPRESIONES	Toma de impresiones. Análogos y transferencias.
+IV-PROTESIS SOBRE IMPLANTES	04.04.03	CUBETA INDIVIDUAL PARA IMPLANTE	Es el elemento que se utilizará para la impresión definitiva. Para confeccionar una cubeta se requiere tomar una impresión o copia de la pieza o de las piezas a tratar.
+IV-PROTESIS SOBRE IMPLANTES	04.04.04	PILAR MAQUINADO	 El pilar es la pieza que se atornilla sobre un implante. Sobre dicho pilar se confecciona la corona. El pilar maquinado es el fabricado industrialmente con los mismos tornos con los que se fabrican los implantes. Puede ser totalmente metálico o de base metálica con su pro-abuttment de zirconia o disilicato de litio. 
+IV-PROTESIS SOBRE IMPLANTES	04.04.06	PILAR COLADO	El pilar es la pieza que se atornilla sobre un implante. Sobre dicho pilar se confecciona la corona. El pilar colado es el que se fabrica individualmente en el laboratorio de prótesis dental. Es metálico.
+IV-PROTESIS SOBRE IMPLANTES	04.04.07	PILAR DE ZIRCONIA	El pilar es la pieza que se atornilla sobre un implante. Sobre dicho pilar se confecciona la corona. Se fabrica individualmente en el laboratorio de prótesis dental. Es cerámico.
+IV-PROTESIS SOBRE IMPLANTES	04.04.08	CORONA TEMPORARIA SOBRE IMPLANTES	Es la corona que se confecciona para recuperar la función y la estética durante la confección de la corona definitiva o durante el tiempo que el profesional considere adecuado.
+IV-PROTESIS SOBRE IMPLANTES	04.04.09	CORONA DE RESINA SOBRE IMPLANTES	Es elemento protético que se confecciona sobre el pilar cumpliendo con los requisitos estéticos y funcionales. En este caso se confecciona con una resina compuesta.
+IV-PROTESIS SOBRE IMPLANTES	04.04.10	CORONA METALICA SOBRE IMPLANTES	Es elemento protético que se confecciona sobre el pilar y es que da la forma al diente a reemplazar. En este caso se confecciona con una aleación metálica.
+IV-PROTESIS SOBRE IMPLANTES	04.04.11	CORONA CERAMO METALICA SOBRE IMPLANTES	El elemento protético que se confecciona sobre el pilar y es que da la forma al diente a remplazar. En este caso se confecciona con una base metálica recubierta de porcelana.
+IV-PROTESIS SOBRE IMPLANTES	04.04.12	CORONA CERAMICA PURA SOBRE IMPLANTES	 El elemento protético que se confecciona sobre el pilar y es que da la forma al diente a remplazar. En este caso se confecciona en cerámica sin base metálica. Los materiales para confección de coronas libres de metal pueden ser de disilicato de litio (maquinado o inyectado) o mediante Óxido de Zirconio. 
+IV-PROTESIS SOBRE IMPLANTES	04.04.13	TRAMO DE PUENTE RESINA	 El tramo de puente es el elemento protético que remplaza a una pieza dentaria y se utiliza entre dos pilares de puente. Pueden ser cementados, atornillados y/o cemento-atornillados 
+IV-PROTESIS SOBRE IMPLANTES	04.04.15	TRAMO DE PUENTE METALICO	 El tramo de puente es el elemento protético que remplaza a una pieza dentaria y se utiliza entre dos pilares de puente. Pueden ser cementados, atornillados y/o cemento-atornillados 
+IV-PROTESIS SOBRE IMPLANTES	04.04.16	TRAMO DE PUENTE CERAMO METALICO	 El tramo de puente es el elemento protético que remplaza a una pieza dentaria y se utiliza entre dos pilares de puente. Pueden ser cementados, atornillados y/o cemento-atornillados 
+IV-PROTESIS SOBRE IMPLANTES	04.04.17	TRAMO DE PUENTE CERAMICA PURA	El tramo de puente es el elemento protético que remplaza a una pieza dentaria y se utiliza entre dos pilares de puente. Pueden ser cementados, atornillados y/o cemento-atornillados
+IV-PROTESIS SOBRE IMPLANTES	04.04.18	CORONA ATORNILLADA DE RESINA	La corona atornillada se conecta sobre un implante mediante un elemento que se conoce como U.E.C. (unidad emergente corona) Tanto el emergente como el material de blindaje (resina compuesta) componen la meso y supraestructura.
+IV-PROTESIS SOBRE IMPLANTES	04.04.19	CORONA ATORNILLADA METALICA	La corona atornillada se conecta sobre un implante mediante un elemento que se conoce como U.E.C unidad emergente- corona. En esta situación el encerado y posterior colado de la meso y supraestructura son del mismo material (aleación metálica).
+IV-PROTESIS SOBRE IMPLANTES	04.04.20	CORONA ATORNILLADA METALOCERAMICA	La corona atornillada se conecta sobre un implante mediante un elemento que se conoce como U.E.C unidad emergente corona. Tanto el emergente colado como el material de blindaje(cerámica) componen la meso y supraestructura.
+IV-PROTESIS SOBRE IMPLANTES	04.04.21	CORONA CEMENTO- ATORNILLADA	La corona cemento-atornillada representa una variante de la corona atornillada. Su mesoestructura es un pilar maquinado de metal o base metálica con su proabuttment en disilicato de litio o zirconio. La supraestructura o corona está separada de la mesoestrcuctura con un acceso por oclusal para el tornillo de fijación. Ambas partes pueden ser cementadas en el modelo o en el interior de la boca. La corona puede ser ceramometálica, de dislicato de litio o zirconio.
+IV-PROTESIS SOBRE IMPLANTES	04.04.22	SOBREDENTADURA SOBRE IMPLANTES A TRAVES DE BARRA Y CONTRABARRA	.
+IV-PROTESIS SOBRE IMPLANTES	04.04.23	SOBREDENTADURA SOBRE IMPLANTES CON DISTINTOS MEDIOS DE RETENCION	Ball attachment, sistema Locator, etc.
+IV-PROTESIS SOBRE IMPLANTES DE ARCO COMPLETO	04.04.24	PROTESIS HIBRIDA DE BAJA COMPLEJIDAD	Confeccionada sobre pilares generalmente temporarios atornillada a los implantes. Son de resinas acrílicas.
+IV-PROTESIS SOBRE IMPLANTES DE ARCO COMPLETO	04.04.25	PROTESIS HIBRIDA DE MEDIANA COMPLEJIDAD	 Confeccionada sobre pilares definitivos. Consta de una mesoestructura metálica con encía y dientes artificiales atornillada a los implantes. Son de resinas acrílicas y/o resinas compuestas. 
+IV-PROTESIS SOBRE IMPLANTES DE ARCO COMPLETO	04.04.26	PROTESIS HIBRIDA DE ALTA COMPLEJIDAD	 Confeccionada sobre pilares definitivos y puede ser confeccionada en varias partes. Su complejidad deriva de su método de confección y del material utilizado. (colada, método CAD-CAM, etc.) 
+IV- TRATAMIENTOS COMPLEMENTARIOS 	04.04.27	CAMBIO DE O´RING	.
+IV- TRATAMIENTOS COMPLEMENTARIOS	04.04.28	CAMBIO DE TEFLON	.
+IV- TRATAMIENTOS COMPLEMENTARIOS	04.04.29	EXTRACCION DE TORNILLO FRACTURADO	.
+IV- TRATAMIENTOS COMPLEMENTARIOS	04.04.30	CAMBIO DE TORNILLO	.
+IV- TRATAMIENTOS COMPLEMENTARIOS	04.04.31	CEMENTADO TEMPORARIO	.
+V- PREVENCION	05.01.00	TARTRECTOMIA Y CEPILLADO MECANICO	Se realizará en ambas arcadas sin límite de edad y podrá hacerse cada 6(seis) meses, podrá realizarse en forma manual o mecánica, removiendo todo calculo supragingival y pigmentos de los elementos dentarios.
+V- PREVENCION	05.02.00	TOPICACION CON FLUOR	 Tendrá una frecuencia de una vez cada tres (3) meses en pacientes de alto riesgo odontológico o médico y de una vez cada seis (6) meses en pacientes sanos o bajo riesgo. En mujeres embarazadas, una vez cada tres (3) meses a partir del primer trimestre de embarazo. Cubre toda la boca. 
+V- PREVENCION	05.03.00	INACTIVACIÓN DE CARIES	 Con instrumental manual y/o rotatorio que incluye obturación provisoria o intermedia teniendo como objetivo la reducción de la carga microbiana en pacientes con actividad cariogénica o un compás de espera para observar la respuesta pulpar. Se reconocerá por cuadrante. 
+V- PREVENCION	05.04.00	DETECCION CONTROL DE PLACA BACTERIANA/ENSEÑA NZA DE TECNICA DE HIGIENE	 Se refiere a la enseñanza por parte del profesional de las técnicas de higiene adecuada a cada paciente según edad y otros criterios. Se realiza con frecuencia una vez cada tres (3) meses en pacientes de alto riesgo odontológico o médico y de una vez cada seis (6) meses en pacientes sanos o de bajo riesgo. Incluye el revelado, detección de placa bacteriana y uso de elementos accesorios de higiene. 
+V- PREVENCION	05.05.00	SELLADORES DE FOSAS Y FISURAS	Se reconocerá hasta los 15 años en premolares y molares superiores e inferiores permanentes, no deben tener caries.
+V- PREVENCION	05.06.00	APLICACIÓN DE SUSTANCIAS REMINERALIZANTES	Cualquier sea su presentación comercial para tratamientos específicos y se reconocerá por cuadrante, según modo de uso de cada material.
+V- PREVENCION	05.07.00	PULIDO Y REDONDEADO DE PIEZAS DENTARIAS	Que generen micro trauma crónico, pulido de prótesis, eliminación de componentes protéticos traumáticos. Se considerará por pieza dentaria y/o prótesis. Se realizará según la necesidad del caso.
+V- PREVENCION	05.08.00	PROMOCIÓN DE LA SALUD BUCAL	Se refiere al desarrollo de actividades grupales como talleres, cursos, conferencias y otras actividades grupales en el marco de la promoción de la salud. Incluye buches fluorados se consigna un código por clase.
+V- PREVENCION	05.09.00	PROTECTOR BUCAL PERSONALIZADO	Se refiere al protector bucal realizado por el odontólogo para prevenir traumatismos. Dispositivo intrabucal ubicado en el maxilar superior.
+VI- ORTODONCIA	06.01.01	CONSULTA ORTODONCIA	Es la primera consulta donde el profesional hace un diagnóstico presuntivo clínico oclusal y estético del paciente. Se solicitan estudios complementarios de diagnóstico (fotografías, radiografías, estudios cefalométricos, etc.)
+VI- ORTODONCIA	06.01.02	DIAGNOSTICO - PRONÓSTICO Y PLAN DE TRATAMIENTO	Es la consulta en donde se analizarán los estudios complementarios de diagnóstico. Con ello se determinará diagnóstico, pronostico y plan de tratamiento.
+VI- ORTODONCIA	06.01.03	CONSULTA DE URGENCIA EN ORTODONCIA	Es la consulta de todo paciente en tratamiento, al cual se le produce una lesión por arcos que se cortan, bandas, brackets ó tubos que se despegan, etc.
+VI- ORTODONCIA	06.02.01	ORTODONCIA PREVENTIVA E INTERCEPTIVA EN DENTICION PRIMARIA	 Es el abordaje en las etapas iniciales de un problema en desarrollo para disminuir la severidad de la mal formación y eliminar su causa en la dentición temporaria. Los factores de complicación como desarmonías esqueléticas, deficiencia general del espacio u otras condiciones pueden requerir terapia integral a futuro. 
+VI- ORTODONCIA	06.02.02	ORTODONCIA PREVENTIVA E INTERCEPTIVA EN DENTICION MIXTA	 Es el abordaje en las etapas iniciales de un problema en desarrollo para disminuir la severidad de la mal formación y eliminar su causa en la dentición en la que se observa la primera aparición de las piezas dentarias permanentes, conviviendo con las piezas dentarias temporarias. Los factores de complicación como desarmonías esqueléticas, deficiencia general del espacio u otras condiciones pueden requerir terapia integral a futuro. 
+VI- ORTODONCIA	06.03.01	TRATAMIENTO DE ORTODONCIA PARCIAL EN DENTICION PRIMARIA	 Es un tratamiento de ortodoncia en la primera dentición en desarrollo, es decir antes de la aparición de las primeras piezas dentarias permanentes, con un objetivo limitado y que no incluye a todas las piezas dentarias. Puede estar dirigido al único problema existente, o en el marco de un problema más amplio en el que se tomó la decisión de aplazar o renunciar a un tratamiento integral. 
+VI- ORTODONCIA	06.03.02	TRATAMIENTO DE ORTODONCIA PARCIAL EN DENTICION MIXTA	 Es un tratamiento de ortodoncia en la dentición en la que se observa la primera aparición de las piezas dentarias permanentes, conviviendo con las piezas dentarias temporarias, con un objetivo limitado y que no incluye a todas las piezas dentarias. Puede estar dirigido al único problema existente, o en el marco de un problema más amplio en el que se tomó la decisión de aplazar o renunciar a un tratamiento integral. 
+VI- ORTODONCIA	06.03.03	TRATAMIENTO DE ORTODONCIA PARCIAL EN DENTICION PERMANENTE Y PACIENTE EN CRECIMIENTO	Es un tratamiento de ortodoncia en la dentición de las piezas dentarias permanentes que se encuentran en pacientes que no hayan terminado su ciclo de crecimiento, con un objetivo limitado y que no incluye a todas las piezas dentarias. Puede estar dirigido al único problema existente, o en el marco de un problema más amplio en el que se tomó la decisión de aplazar o renunciar a un tratamiento integral.
+VI- ORTODONCIA	06.03.04	TRATAMIENTO DE ORTODONCIA PARCIAL EN ADULTO	Es un tratamiento de ortodoncia en la dentición de piezas dentarias permanentes que se encuentran en pacientes que hayan terminado su ciclo de crecimiento, con un objetivo limitado y que no incluye a todas las piezas dentarias. Puede estar dirigido al único problema existente, o en el marco de un problema más amplio en el que se tomó la decisión de aplazar o renunciar a un tratamiento integral.
+VI- ORTODONCIA	06.04.01	ORTODONCIA INTEGRAL EN DENTICION PRIMARIA	 Es un tratamiento de varias etapas planificadas en los diferentes estadíos del desarrollo dento-facial en la primera dentición en desarrollo, es decir antes de la aparición de las primeras piezas dentarias permanentes. Este tratamiento puede incorporar varias fases con objetivos específicos en diversas etapas de desarrollo dento-facial. 
+VI- ORTODONCIA	06.04.02	ORTODONCIA INTEGRAL EN DENTICION MIXTA	 Es un tratamiento de varias etapas planificadas en los diferentes estadíos del desarrollo dento-facial en la dentición en la que se observa la primera aparición de las piezas dentarias permanentes, conviviendo con las piezas dentarias temporarias. Este tratamiento puede incorporar varias fases con objetivos específicos en diversas etapas de desarrollo dento-facial. 
+VI- ORTODONCIA	06.04.03	ORTODONCIA INTEGRAL A PACIENTE EN CRECIMIENTO	 Es un tratamiento de varias etapas planificadas en los diferentes estadíos del desarrollo dento-facial en la dentición de las piezas dentarias permanentes que se encuentran en pacientes que no hayan terminado su ciclo de crecimiento. Este tratamiento puede incorporar varias fases con objetivos específicos en diversas etapas de desarrollo dento-facial. 
+VI- ORTODONCIA	06.04.04	INTEGRAL EN PACIENTES ADULTOS CON APARATOLOGÍA VESTIBULAR	Es un tratamiento planificado en la dentición permanente en pacientes adultos que hayan terminado su crecimiento, dirigido a resolver toda su maloclusión con aparatología fija (brackets convencionales armado por vestibular).
+VI- ORTODONCIA	06.04.05	 ORTODONCIA INTEGRAL EN PACIENTES ADULTOS CON APARATOLOGÍA LINGUAL 	Es un tratamiento planificado en la dentición permanente en pacientes adultos que hayan terminado su crecimiento, dirigido a resolver toda su maloclusiòn, con aparatología fija (brackets no convencionales linguales)
+VI- ORTODONCIA	06.05.01	INSTALACIÓN DE LA APARATOLOGÍA DE CONTENCIÓN	Luego de terminado el tratamiento de ortodoncia se deberá instalar los aparatos de contención para que se estabilice el tratamiento. Se codificará uno por arcada.
+VI- ORTODONCIA	06.05.02	 CONTROLES POST TRATAMIENTO EN CONTENCIÓN 	Consulta periódica para control de aparatos de contención y la estabilidad de la oclusión del paciente.
+VI- ORTODONCIA	06.06.01	COLOCACIÓN DE ANCLAJE ESQUELETAL ABSOLUTO	Es el acto quirúrgico donde se colocarán microimplantes. Se codificará un código por microtornillo según plan de tratamiento.
+VI- ORTODONCIA	06.07.01	PLANIFICACIÓN QUIRÚRGICA Y CONSTRUCCIÓN DE SPLINT	 El ortodoncista deberá planificar el tratamiento y la cirugía ortognática que se realizará en el paciente, en equipo con el cirujano se construirá el Splint que será el intermediario oclusal que guiará y estabilizará la nueva oclusión del paciente. Existen pasos clínicos o intermedios en cada código, los cuales serán codificados para determinar las actividades que realizan los profesionales en los servicios de salud, en cadacontrol o sesión de los diferentes tipos de tratamientos de ortodoncia. 
+VI- ORTODONCIA	06.00.01	TOMA DE IMPRESIÓN Y CONFECCIÓN DE MODELOS	Uno por arcada.
+VI- ORTODONCIA	06.00.02	MONTAJE EN ARTICULADOR	Este código incluye el registro de mordida necesario para realizar el montaje, su análisis e interpretación De los factores que alteran la oclusión y son complementarios al diagnóstico.
+VI- ORTODONCIA	06.00.03	SEPARACION DE DIENTES	 Comprende el mecanismo de separar dos elementos dentarios, por diferentes métodos. 
+VI- ORTODONCIA	06.00.04	CEMENTADO DE BANDAS	Comprende la adaptación de bandas y posterior cementado, se codificará por unidad.
+VI- ORTODONCIA	06.00.05	ADHESION DE BRACKETS O BOTON INDIVIDUAL	Adhesión individual de brackets hasta 5(cinco) unidades, se codificará solo este ítem.
+VI- ORTODONCIA	06.00.06	ADHESION DE BRACKETS 6 A 10	Adhesión de brackets de 6(seis) a 10 (diez) unidades por arcada. 06.00.07.
+VI- ORTODONCIA	06.00.07	 INSTALACION DE ARCOS INTRA Y EXTRAORALES POR ARCADA 	Este código comprende la adaptación y colocación de arcos intra y extraorales y se codificará por cada arco que se instale.
+VI- ORTODONCIA	06.00.08	CONTROL Y ACTIVACION DE APARATOLOGIA	.
+VI- ORTODONCIA	06.00.09	INSTALACION DE PLACAS	 (De expansión, Schwartz, Hawley, planos inclinados). Instalación de aparatología ortopédica para el tratamiento funcional (AAEK, BIONATORS, BIMBLER, ETC.) 
+VI- ORTODONCIA	06.00.10	INSTALACION DE APARATOLOGIA AUXILIAR	PARRILLAS LINGUALES, PALATAL EXPANDER, QUAD HELIX, BARRAS PALATINAS, ARCO LINGUAL O SIMILAR
+VI- ORTODONCIA	06.00.11	INSTALACION DE APARATOLOGIA EXTRAORAL (MASCARA DE TRACCION, FEO, ETC.)	Comprende la adaptación e instalación de ésta.
+VI- ORTODONCIA	06.00.12	INSTALACION Y CEMENTADO DE DISYUNTOR	.
+VI- ORTODONCIA	06.00.13	PLACA DESPROGRAMADORA	Comprende la instalación y ajustes de la placa y los controles posteriores se codifican con el 06.00.09
+VI- ORTODONCIA	06.00.14	 LEVANTE DE MORDIDA, BITE BLOCK, TOPES OCLUSALES POSTERIORES, TOPES ANTERIORES, CONTACTOS STOPPER, ESTABILIZADORES, GUIAS DE ERUPCION, CONTACTOS A 	.
+VI- ORTODONCIA	06.00.15	DESGASTES SELECTIVOS EN DIENTES TEMPORARIOS Y PERMANENTES PARA ESTABILIZACION Y ARMONIZACION OCLUSAL	.
+VI- ORTODONCIA	06.00.16	COLOCACION DE ACCESORIOS PARA LA BIOMECANICA	Resortes espiras abiertas o cerradas, tornillo gurin, ganchos engrampables, construcción de cantilevers o arcos seccionales.
+VI- ORTODONCIA	06.00.17	 COLOCACION DE GOMAS INTERMAXILARES 	Colocación de gomas intermaxilares.
+VI- ORTODONCIA	06.00.18	RETIRO DE APARATOLOGIA	Incluye pulido de los elementos dentarios.
+VI- ORTODONCIA	06.00.19	BAJA EN TRATAMIENTO DE ORTODONCIA	Abandono de tratamiento. Se coloca cuando el paciente no concurre al turno tres veces consecutivas, o cuatro veces sin justificar.
+VI- ORTODONCIA	06.00.20	REINGRESO A ORTODONCIA	Cuando se le dio de baja al paciente en el tratamiento y retoma el tratamiento con la debida justificación por parte del paciente.
+VI- ORTODONCIA	06.00.21	ALTA EN ORTODONCIA	Cuando concluyó la etapa de tratamiento.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.01.01	 MOTIVACION HASTA QUE EL PACIENTE ACEPTE EL TRATAMIENTO ODONTOLÓGICO 	Hasta cinco (5) codificaciones por año y hasta los trece (13) años.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.02.00	ATENCION AL BEBE	Una vez cada tres (3) meses hasta los tres (3) años independientemente de los tratamientos a realizar.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.03.00	TECNICA RESTAURATIVA ATRAUMATICA	.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.04.00	TRATAMIENTO PULPAR EN DIENTES PRIMARIOS	Se reconocerá con radiografías post-operatoria y cuando el diente tratado tenga menos de los dos tercios (2/3) de la raíz reabsorbida y no se encuentre en el período de exfoliación normal.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.05.00	CORONAS	Se reconocerá en dientes primarios con gran destrucción coronaria y dientes tratados endodónticamente que tengan menos de los dos tercios (2/3) de la raíz reabsorbida y que no se encuentre en el período de exfoliación normal.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.06.00	MANTENEDORES DE ESPACIO SIMPLES	Incluye corona y ansa de alambre de apoyo.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.06.01	MANTENEDORES DE ESPACIO MULTIPLES	Arco lingual y botón de nance.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.06.02	MANTENEDORES DE ESPACIO REMOVIBLES	 Se reconocerá cuando falten dos (2) o más dientes primarios contiguos o más de dos (2) dientes alternados en la misma arcada dental. Podrá renovarse semestralmente con autorización previa. 
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.07.00	CONCUSIONES, SUBLUXACIONES Y LUXACIONES	Se codificará para concusiones, subluxaciones y luxaciones en dientes temporarios. No se codificara junto a la urgencia odontopediátrica en dientes permanentes.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.07.01	CONCUSIONES, SUBLUXACIONES Y LUXACIONES SIN DESPLAZAMIENTO	.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.07.02	INMOVILIZACION DENTARIA	Para luxaciones con desplazamiento
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.07.03	LUXACION TOTAL O AVULSION Y REIMPLANTE DENTARIO	.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.07.04	CONTROL POST- TRAUMASTIMOS	Incluye regularización y topicación de flúor.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.08.00	FRACTURAS CORONARIAS DE ESMALTE	.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.08.01	 FRACTURAS AMELODENTARIAS SIN EXPOSICION PULPAR 	.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.08.02	FRACTURAS AMELODENTARIAS CON EXPOSICION PULPAR	.
+VII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	07.08.03	FRACTURAS CORONORADICULARES	.
+VIII- PERIODONCIA	08.01.00	HISTORIA CLINICA PERIODONTAL	Se efectuará cada vez que se inicie y/o reinicie un tratamiento.
+VIII- PERIODONCIA	08.01.01	 ESTUDIOS DE DIAGNÓSTICOS COMPLEMENTARIOS Y DE MAYOR COMPLEJIDAD 	Se efectuará en casos que la complejidad del caso clínico lo requiera.
+VIII- PERIODONCIA	08.02.00	 TRATAMIENTO DE LAS GINGIVITIS ASOCIADAS A BIOFILM 	Incluye ambos maxilares sin considerar cantidad de piezas.
+VIII- PERIODONCIA	08.02.01	TRATAMIENTOS DE LAS GINGIVITIS NO ASOCIADAS A BIOFILM	Incluye ambos maxilares sin considerar cantidad de piezas.
+VIII- ODONTOLOGIA PARA NIÑOS Y ADOLECENTES	08.03.00	TRATAMIENTO DE LAS PERIODONTITIS ESTADIO I O II (SEIS SECTORES)	 Se efectuará en presencia de bolsas periodontales que no superen cinco (5) milímetros o con pérdida de inserción no mayor a cinco (5) milímetros y consistirá en el tratamiento de la superficie radicular afectada de las piezas dentarias. Con posterioridad al tratamiento, se hará la evaluación, mantenimiento o prestaciones complementarias que correspondan, no incluidas en el tratamiento y por cuadrante sin considerar piezas. 
+VIII- PERIODONCIA	08.04.00	TRATAMIENTO DE LAS PERIODONTITIS ESTADIO III O IV	 Se efectuará en presencia de bolsas periodontales que superen cinco (5) milímetros o con pérdida de inserción mayor a cinco (5) milímetros. Consistirá en el tratamiento, de cada superficie radicular afectada. Con posterioridad al tratamiento, se hará la evaluación, mantenimiento y/o prestaciones complementarias que correspondan; no incluidas en el tratamiento y por cuadrante sin considerar cantidad de piezas. 
+VIII- PERIODONCIA	08.05.00	TRATAMIENTO DE PERIMPLANTITIS	.
+VIII- PERIODONCIA	08.06.00	TRATAMIENTO DE MUCOCITIS	.
+VIII- PERIODONCIA	08.07.00	EVALUACIÓN POST TERAPIA BASICA	 Se efectuará transcurrido dos (2) meses de la finalización de cualquier terapia periodontal y de la misma se determinará la necesidad de prácticas complementarias o pasar al paciente a fase de mantenimiento. 
+VIII- PERIODONCIA	08.08.00	MANTEMIENTO	Se deberá efectuar por períodos regulares entre tres (3) y seis (6) meses, siendo el ideal realizarlos cada tres (3) meses y de por vida, dependiendo del diagnóstico y factores de riesgo.
+VIII- PERIODONCIA	08.09.00	 CONSULTAS NO INCLUIDAS EN MANTENIMIENTO Y EVALUACION 	.
+VIII- PERIODONCIA	08.10.00	RADECTOMIA	Por elemento.
+VIII- PERIODONCIA	08.11.00	HEMISECCION	Por elemento.
+VIII- PERIODONCIA	08.10.00	REGENERACION TISULAR GUIADA	Por pieza y cara.
+VIII- PERIODONCIA	08.11.00	RELLENO DE DEFECTOS	Por defecto.
+VIII- PERIODONCIA	08.12.00	TRATAMIENTO DE HIPERSENSIBILIDAD	Por sector.
+VIII- PERIODONCIA	08.13.00	ALARGUE CORONA CLÍNICA	Posterior a cualquier terapia periodontal. O cuando el caso clínico lo requiera por estética, función, rehabilitación, etc.
+VIII- PERIODONCIA	08.14.00	FERULIZACIÓN TRANSITORIA	Se efectuará posteriormente a la evaluación y se indicará en la ficha la indicación terapéutica y su necesidad.
+VIII- PERIODONCIA	08.15.00	FERULIZACIÓN PERMANENTE	Se efectuará posteriormente a la evaluación y se indicará en la ficha la indicación terapéutica y su necesidad.
+VIII- PERIODONCIA	08.16.00	 GINGIVECTOMIA Y GINGIVOPLASTIA POR DIENTE: 	Posterior a cualquier terapia periodontal. O cuando el caso clínico lo requiera por estética, función, rehabilitación, etc.
+VIII- PERIODONCIA	08.17.00	CIRUGIA REPARATIVA POR ELEMENTO	.
+VIII- PERIODONCIA	08.18.01	 CIRUGIA REGENERATIVA OSEA POR DEFECTO POR ELEMENTO SIN MEMBRANA 	.
+VIII- PERIODONCIA	08.18.02	 CIRUGIA REGENERATIVA OSEA POR DEFECTO POR ELEMENTO CON MEMBRANA 	.
+VIII- PERIODONCIA	08.19.00	 CIRUGIA REGENERATIVA DE TODO EL APARATO DE INSERCION POR ELEMENTO (FACTORES DE CRECIMIENTO/RTG) 	.
+VIII- PERIODONCIA	08.20.00	 CIRUGIA REGENERATIVA OSEA GUIADA POR SECTOR 	.
+VIII- PERIODONCIA	08.21.00	CIRUGIA MUCOGINGIVAL POR ELEMENTO	.
+VIII- PERIODONCIA	08.21.01	COLGAJO DESPLAZADO CORONAL POR ELEMENTO	.
+VIII- PERIODONCIA	08.21.02	COLGAJO DESPLAZADO LATERAL Y CORONAL POR ELEMENTO	.
+VIII- PERIODONCIA	08.21.03	 INJERTO DE TEJIDO CONECTIVO SUBEPITELIAL POR ELEMENTO 	.
+VIII- PERIODONCIA	08.21.04	INJERTO GINGIVAL LIBRE POR ELEMENTO	.
+VIII- PERIODONCIA	08.21.05	XENOINJERTOS POR ELEMENTO	 Los profesionales pertenecientes al Ministerio de Salud Públ ica que realicen odontología general podrán asignar los códigos 08.01.00, 08.02.00, 08.03.00. El resto de los códigos serán codificados por los especialistas u odontólogos que serán d esignados por el programa de odontología para realizar dichas prácticas. 
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.00.00	FOTOGRAFIAS EXTRAORALES E INTRAORALES	Toma de registros para complementar el diagnóstico y seguimiento del plan de tratamiento.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.00.01	GUIA TOMOGRAFICAS	Incluye software.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.01.01	RX PERIAPICALES	Técnicas de cono corto o cono largo.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.01.02	RX BITE WING	Su aplicación es indicada para observar caríes incipientes en caras proximales, lo que no se puede observar a nivel clínico. Además, para controlar la adaptación de mantenedores de espacio, adaptación de coronas y puentes protéticos.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.01.03	RX OCLUSALR	 Permite visualizar una zona más amplia de la que se observa con la película retroalveolar, de modo que será de gran utilidad, en elementos retenidos, quistes, lesiones tumorales, fracturas de tablas óseas, traumatismos dentoalveolares y de los maxilares, fisuras palatinas. 
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.01.04	RX SERIADA HASTA SIETE PELICULAS	Técnicas de cono corto o cono largo. Se reconocerá cuando la integren siete (7) películas.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.01.05	RX SERIADA HASTA CATORCE PELICULAS	Técnicas de cono corto o cono largo. Se reconocerá cuando la integren catorce (14) películas.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.02.00	RX FRONTO NASO PLACA	Se indica para observar los senos frontales, celdillas etmoidales, la porción petrosa del hueso temporal, rebordes infraorbitarios y lesiones tumorales quísticas.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.02.01	RX FRONTONASOPLACA A BOCA ABIERTA	Se indica para observar el maxilar inferior y sus cóndilos.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.02.02	RX MENTO NASO PLACA O DE WATERS	Destinada principalmente para observar los senos paranasales, asimetría facial y estructuras del maxilar superior.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.02.03	ATM	 Se utiliza para observar la relación entre la cavidad glenoidea y el cóndilo mandibular en máxima intercuspidación, el espacio interarticular y el desplazamiento del cóndilo mandibular en el movimiento de apertura bucal máxima como la posición de reposo. Esta además indicada para observar luxaciones y subluxaciones condilares, fracturas de cuello y cóndilo mandibular como así también lesiones degenerativas. 
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.02.04	PANTOMOGRAFIA	Radiografía panorámica. Es el estudio panorámico de la cavidad bucal y zona vecina.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.02.05	TELERADIOGRAFIA CEFALOMETRICA FRENTE O PERFIL	No incluye el o los trazados cefalométricos.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.02.06	SIALOGRAFIA	Estudio radiográfico de las glándulas. No incluye la sustancia de contraste. Comprende el estudio con un mínimo de tres (3) placas por glándula y por lado.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.02.07	CEFALOMETRIA	El o los trazos cefalométricos sobre la telerradiografía que permiten determinar distintas medidas que indican las diferentes anomalías. Lo cargaran como prestación solo aquellos profesionales que realicen el estudio.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.02.08	RX CARPAL	 Análisis de maduración ósea comparada con la edad cronológica. Solo serán asignados los códigos a los profesionales que realicen este estudio y no a quien los solicita 
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.03.01	TOMOGRAFIA SECTORIZADA CONE-BEAM	Esta indicada cuando solamente se planifica para uno de los maxilares, quistes, dientes retenidos e implantes. Se selecciona la ventana o FOV lo que se obtiene una imagen parcial computada de pocos centímetros cuadrados.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.03.02	 TOMOGRAFIA MONOMAXILAR SISTEMA CONE-BEAM 	Se prescribe cuando la zona o plano de interés es para maxilar superior o mandíbula, con las mismas indicaciones que la anterior.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.03.03	TOMOGRAFIA BIMAXILAR SISTEMA CONE-BEAM	 Este método reproduce imágenes en tres dimensiones (3D) y reconstrucción multiplanar de los maxilares adecuando a las distintas ventanas o FOV de los distintos equipos, lo que reproduce cráneo total o estructura parciales. En este caso se prescribe para obtener información de ambos maxilares, para realizar planeamiento implantológico, lesiones tumorales o metástasis óseas, dientes retenidos, traumatismos maxilares, etc. Solo serán asignados los códigos a los profesionales que realicen este estudio y no a quien los solicita. 
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.04.01	RESONANCIA MAGNETICA	Es una técnica que sirve para diagnosticar diferentes enfermedades o estados patológicos mediante la obtención de imágenes del cuerpo sin necesidad de utilizar rayos X.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.04.02	ECOGRAFIA GLANDULAR SALIVALES	Este método es la aplicación de ultrasonido destinada a explorar principalmente: quistes, ránulas de las glándulas mayores y menores salivares.
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.04.03	ECOGRAFIA DE TEJIDOS BLANDO	Aplicación de ultrasonido para diagnosticar tejidos blandos faciales, intraorales (medición de espesor de mucosa bucal).
+IX - DIAGNOSTICO POR IMÁGENES FOTOGRAFIAS	09.04.04	CENTELLOGRAFIA	 Es un método invasivo que utiliza la inyección de una sustancia de contraste como ethidol, sinographin 0,2 a 1,5 mililitros, utilizado para observar el estroma, los acinos y sus ramificaciones de las glándulas salivares: parótida sub- maxilar, sublingual, especialmente indicada para obstrucciones de los ductos excretores en el caso de sialolitos, tumores, metástasis. Solo serán asignados los códigos a los profesionales que realicen este estudio y no a quien los solicita. 
+X -CIRUGIA	10.00.00	CONSULTA QUIRURGICA	 Lo codificarán solo los profesionales que realizan la especialidad. 
+X -CIRUGIA	10.00.01	CONTROLES POST QUIRURGICOS	.
+X -CIRUGIA	10.01.00	EXTRACCION DENTARIA	Incluye sutura.
+X -CIRUGIA	10.01.01	EXTRACCION DE RESTOS RADICULARES	Incluye sutura.
+X -CIRUGIA	10.01.02	EXTRACCION DE RESTOS RADICULARES POR ALVEOLECTOMIA	Incluye sutura
+X -CIRUGIA	10.01.03	EXTRACCION DE RESTOS RADICULARES POR ODONTOSECCION	Incluye sutura.
+X -CIRUGIA	10.02.00	 PLASTICA BUCOSINUSAL 	.
+X -CIRUGIA	10.03.00	 BIOPSIA DE TEJIDOS BLANDOS 	Por incisión, punción, aspiración o escisión.
+X -CIRUGIA	10.03.01	 BIOPSIA DE TEJIDOS DUROS 	.
+X -CIRUGIA	10.04.00	 TRATAMIENTOS DE ALVEOLITIS 	.
+X -CIRUGIA	10.04.01	 TRATAMIENTOS DE HEMORRAGIAS POST EXTRACCION 	.
+X -CIRUGIA	10.05.00	ALVEOLECTOMIA ESTABILIZADORA POR ZONAS	Incluye sutura.
+X -CIRUGIA	10.06.00	GERMENECTOMIA	.
+X -CIRUGIA	10.07.00	 LIBERACION DE DIENTE RETENIDO 	.
+X -CIRUGIA	10.08.00	 EXTRACCION DE DIENTE RETENIDO CON RETENCION MUCOSA 	.
+X -CIRUGIA	10.08.01	 EXTRACCION DE DIENTE RETENIDO CON RETENCION OSEA 	.
+X -CIRUGIA	10.09.00	APICECTOMIA EN SECTOR ANTERIOR	.
+X -CIRUGIA	10.09.01	APICECTOMIA EN SECTOR POSTERIOR	.
+X -CIRUGIA	10.10.00	TRATAMIENTO DE OSTEOMIELITIS	.
+X -CIRUGIA	10.11.00	EXTRACCION CUERPO EXTRAÑO	.
+X -CIRUGIA	10.12.00	TRATAMIENTOS DE FRACTURAS CON COLOCACION ARCO PEINE 	Codificar por arcada.
+X -CIRUGIA	10.13.00	 SUTURA DE TEJIDOS BLANDOS POR HERIDAS DE TRAUMATISMO 	.
+X -CIRUGIA	10.14.00	 CURACION Y CONTROL DE FLEMONES, ESCORIACIONES, LACERACIONES 	.
+X -CIRUGIA	10.14.01	DRENAJE INTRAORAL DE FLEMONE	.
+X -CIRUGIA	10.14.02	TRATAMIENTO DE MORDEDURAS	.
+X -CIRUGIA	10.15.00	 TRASPLANTE DENTARIO POR ELEMENTO 	.
+X -CIRUGIA	10.16.00	COLOCACION DE ELEMENTO DE CONTRASTE	.
+X -CIRUGIA	10.17.00	FRENECTOMIA LABIAL	.
+X -CIRUGIA	10.17.01	FRENECTOMIA LINGUAL	.
+X -CIRUGIA	10.18.00	RESECCION DE BRIDAS	.
+X -CIRUGIA	10.19.00	 EXCERESIS DE TORUS PALATINO, TORUS MANDIBULAR, LINEA OBLICUA INTERNA, APOFISIS GENI 	.
+X -CIRUGIA	10.20.00	REPARACION QUIRURGICA DE PERDIDA DE HUESO, DEFECTO OSEO, SECUELAS	.
+X -CIRUGIA	10.21.00	 ELIMINACION DE CALCULOS EN CONDUCTOS SALIVALES 	.
+X -CIRUGIA	10.22.00	ELIMINACION DE CALCULOS EN CONDUCTOS SALIVALES CON ABORDAJE EXTERNO	.
+X -CIRUGIA	10.23.00	 TRATAMIENTO QUIRURGICO DE TUMORES BENIGNOS DE GLANDULAS 	.
+X -CIRUGIA	10.24.00	EXTIRPACION PARCIAL DE GLANDULA MENOR SALIVAL	.
+X -CIRUGIA	10.24.01	 EXTIRPACION PARCIAL DE GLANDULA PAROTIDA 	.
+X -CIRUGIA	10.25.00	EXTIRPACION TOTAL DE GLANDULA SALIVALES MENORES	.
+X -CIRUGIA	10.25.01	 EXTIRPACION TOTAL DE GLANDULA PAROTIDA 	.
+X -CIRUGIA	10.26.00	 REPARACION DE LABIO DE PACIENTE FISURADO UNILATERAL 	.
+X -CIRUGIA	10.27.00	REPARACION DE LABIO DE PACIENTE FISURADO BILATERAL	.
+X -CIRUGIA	10.28.00	REPARACION DE PALADAR DURO	.
+X -CIRUGIA	10.29.00	 REPARACION DE PALADAR BLANDO O PALATOPLASTIA 	.
+X -CIRUGIA	10.30.00	OSTOETOMIA SEGMENTARIAS DE MANDIBULA	.
+X -CIRUGIA	10.30.01	OSTEOTOMIA TOTAL	.
+X -CIRUGIA	10.30.02	OSTEOTOMIAS DE MAXILAR SUPERIOR	.
+X -CIRUGIA	10.30.03	CORTICOTOMIA EN AMBOS MAXILARES	.
+X -CIRUGIA	10.31.00	 TRATAMIENTO DE FRACTURA EN MAXILAR INFERIOR, CUERPO Y RAMA ASCENDENTE 	.
+X -CIRUGIA	10.31.01	TRATAMIENTO DE FRACTURA EN MAXILAR SUPERIOR.	.
+X -CIRUGIA	10.31.02	 TRATAMIENTO DE FRACTURA DE MALAR, PISO DE ORBITA 	.
+X -CIRUGIA	10.31.03	 TRATAMIENTO DE FRACTURA CONDILEA UNILATERAL 	.
+X -CIRUGIA	10.31.04	TRATAMIENTO DE FRACTURA CONDILEA BILATERAL	.
+X -CIRUGIA	10.31.05	 TRATAMIENTO DE FRACTURAPANFACIAL 	.
+X -CIRUGIA	10.31.06	ATM, ARTROSCOPIA	.
+X -CIRUGIA	10.32.00	TRATAMIENTO DE FISTULA CUTANEA	.
+X -CIRUGIA	10.32.01	DRENAJE POR VIA CUTANEA AMBULATORIO	.
+X -CIRUGIA	10.32.02	 DRENAJE POR VIA CUTANEA EN QUIROFANO 	.
+X -CIRUGIA	10.33.00	 ELIMINACION DE HIPERPLASIA PARAPROTETICA 	.
+X -CIRUGIA	10.34.00	COLGAJOS E INJERTOS DE TEJIDOS BLANDOS	.
+X -CIRUGIA	10.35.01	INJERTOS OSEOS	.
+X -CIRUGIA	10.36.00	 TOMA DE TEJIDO P/ INJERTOS DE ZONA EXTRAORAL 	.
+X -CIRUGIA	10.37.00	 TUMORES DE MAXILARES, BENIGNOS (EXTIRPACION) 	.
+X -CIRUGIA	10.38.00	 TUMORES DE MAXILARES, MALIGNOS (EXTIRPACION) 	.
+X -CIRUGIA	10.39.00	LIFADENECTOMIAS	.
+X -CIRUGIA	10.40.00	 AYUDANTIA EN CIRUGIA EN CONSULTORIO EXTERNO 	.
+X -CIRUGIA	10.41.00	AYUDANTIA EN CIRUGIA EN QUIROFANO	.
+XI- IMPLANTES GRUPO I	11.01.00	CONSULTA DE IMPLANTES	Consulta y solicitud de estudio.
+XI- IMPLANTES GRUPO I	11.01.01	DIAGNOSTICO, PRONOSTICO, PLAN DE TRATAMIENTO	Incluye estudios complementarios (radiografías panorámicas, análisis de laboratorios, tomografías, encerados diagnósticos, etc.).
+XI- IMPLANTES GRUPO I	11.01.02	GUIA QUIRURGICA	.
+XI- IMPLANTES GRUPO I	11.01.03	CIRUGIA Y COLOCACION DE IMPLANTES	Por Implante.
+XI- IMPLANTES GRUPO I	11.01.04	 COLOCACION DE IMPLANTE CIGOMATICO 	Con anestesia general y ayudante.
+XI- IMPLANTES GRUPO I	11.01.06	CONSULTA POST- QUIRURGICO	.
+XI- IMPLANTES GRUPO I	11.01.07	EXTERIORIZACION (CON CICATRIZAL)	 Es el paso previo para comenzar un tratamiento prótetico sobre implantes. Consiste en retirar el tejido blando (encía) que cubra la plataforma del implante y colocar un elemento prótetico (cicatrizal) atornillado al implante. 
+XI- IMPLANTES GRUPO I	11.01.08	RETIRO DE IMPLANTE	Retiro de implante fracturado, implante en mala posición.
+XI- IMPLANTES GRUPO I	11.01.09	TRATAMIENTO DE IMPLANTE ENFERMO	Mucositis- Peri-implantitis.
+XI- IMPLANTES GRUPO I	11.02.01	INJERTO AUTOLOGO INTRABUCAL	.
+XI- IMPLANTES GRUPO I	11.02.02	INJERTO AUTOLOGO EXTRABUCAL	.
+XI- IMPLANTES GRUPO I	11.02.03	SUSTITUTO OSEOS	Incluye los aloplásticos y los injertos.
+XI- IMPLANTES GRUPO I	11.02.04	MEMBRANA	Reabsorbibles y no reabsorbibles.
+XI- IMPLANTES GRUPO I	11.02.05	ELEMENTO DE FIJACION	Tornillo y tachas.
+XI- IMPLANTES GRUPO I	11.02.06	PLASMA RICO EN PLAQUETA	.
+XI- IMPLANTES GRUPO I	11.02.07	INJERTO DE TEJIDO BLANDO SIN DESPLAZAMIENTO	.
+XI- IMPLANTES GRUPO I	11.03.01	CIRUGIA DE SENO ATRAUMATICA	Incluye sustituto óseo.
+XI- IMPLANTES GRUPO I	11.03.02	 CIRUGIA DE SENO MAXILAR CON ANTROSTOMIAS 	Incluye sustituto óseo.
+XI- IMPLANTES GRUPO I	11.03.03	DESPLAZAMIENTO DE PAQUETE VASCULONERVIOSO	.
+XI- IMPLANTES GRUPO I	11.03.04	INJERTO DE TEJIDO BLANDO CON DESPLAZAMIENTO	.
+XII ESTOMATOLOGIA	12.01.00	PRIMERA CONSULTA	Se considera primera consulta al examen, solicitud de estudio, diagnóstico y plan de tratamiento de cualquier patología de la cavidad bucal que involucre tejidos blandos o duros (excluidas las dentarias y periodontales).
+XII ESTOMATOLOGIA	12.02.00	CONSULTA ULTERIOR	 Consulta ulterior es la consulta de control de evolución del tratamiento instaurado. Retiro de puntos y control de heridas de las biopsias y extirpaciones totales de lesiones. Recepción e interpretación de estudio de laboratorio, imágenes y resultados histopatológicos. 
+XII ESTOMATOLOGIA	12.03.00	 DETECCION Y ELIMINACION DE FACTORES TRAUMATICOS LOCALES 	.
+XII ESTOMATOLOGIA	12.04.00	ADMINISTRACION DE MEDICACIONES LOCALES	Práctica que involucra la colocación de medicamentos locales por parte del profesional.
+XII ESTOMATOLOGIA	12.04.01	APLICACIÓN DE METODOS FISICOS PARA CAUTERIZAR	.
+XII ESTOMATOLOGIA	12.04.02	 ALICACION DE SUSTANCIAS DE BIOESTIMULACION Y/0 ELIMANACION DE TEJIDO 	.
+XII ESTOMATOLOGIA	12.05.00	MUCOPROTECTOR	Colocación de protectores mucosos.
+XII ESTOMATOLOGIA	12.06.00	TOMA DE MATERIAL PARA ESTUDIOS MICROBIOLOGICOS	Toma de muestra para antibiogramas y cultivos.
+XII ESTOMATOLOGIA	12.07.00	CITOLOGIA EXFOLIATIVA, RASPAJE DEL TEJIDO BLANDO	Toma superficial de tejidos para estudios citológicos.
+XII ESTOMATOLOGIA	12.08.00	INFILTRACIONES INTRALESIONALES	Infiltración de medicamentos en el interior de las lesiones.
+XIII - PERSONAS CON DISCAPACIDAD	13.01.00	ENTREVISTA POR PRIMERA VEZ	 Confección de historia clínica, datos filiatorios del paciente y DNI, Odontograma, examen clínico (tejidos duros y tejidos blandos, examen funcional, antecedentes médicos y familiares). Deberá reflejar el estado bucal actual, de esta se desprenderá el diagnóstico y plan de tratamiento, se informará al paciente los pasos de su tratamiento para luego firmar el consentimiento informado del mismo. Son muy importantes las entrevistas de primera vez, ya que a partir de ellas se podrán obtener los datos necesarios para determinar el grado de dificultad y complejidad en el abordaje (Grado 0,1,2,3 o 4 ). En esta etapa también se plantearán hipótesis de abordaje y se estimarán los recursos necesarios para llevar a cabo la atención. No se codifica junto al 01.01.00. Se articulará el grado de complejidad de la práctica odontológica con la dificultad propia (dificultad de abordaje) de cada individuo. Como toda clasificación implica una generalización en la cual es importante no olvidar la singularidad propia de cada caso. Grado 0: Incluye aquellas personas cuya discapacidad no afecta para recibir atención odontológica con lasprácticas convencionales. A modo de ejemplo una persona con discapacidad motora pura, sin movimientos involuntarios. Grado 1: Incluye aquellas personas cuya discapacidad afecta levemente el abordaje para la atención odontológica. Por ejemplo: Personas con retraso mental leve. Grado 2: Incluye aquellas personas cuya discapacidad afecta moderadamente el abordaje para recibir atención odontológica con las prácticas convencionales. Por ejemplo: Personas con retraso mental moderado. Grado 3: Incluye aquellas personas cuya discapacidad afecta severamente el abordaje para la atención odontológica. Por ejemplo: Personas con retraso mental severo, discapacidades asociadas como mentales con alguna discapacidad sensorial. Grado 4: Incluye aquellas personas cuya discapacidad afecta profundamente el abordaje para atención odontológica. Por ejemplo: Personas con autismo. Los ejemplos son solo referenciales y no es taxativo para la inclusión en determinado grado. 
+XIII - PERSONAS CON DISCAPACIDAD	13.05.00	ASISTENCIA BAJO SEDACION	Se contemplará en pacientes con alto grado de dificultad, luego de la realización del plan de tratamiento sin respuesta favorable.
+XIII - PERSONAS CON DISCAPACIDAD	13.06.00	ASISTENCIA BAJO ANESTESIA GENERAL	 Se contemplará en pacientes con alto grado de dificultad, luego de la realización del plan de tratamiento sin respuesta favorable, o en casos donde la patología bucal comprometa el estado general del paciente y /o aumente el riesgo médico existente. Queda a criterio del profesional las prácticas a realizar. Para tal fin se deberá contar con el equipamiento necesario. Se requerirá el compromiso familiar por escrito de mantener la salud lograda con controles posteriores y a distancia. Para las prestaciones odontológicas especializadas se deberá contar con profesionales idóneos no sólo en el área de su especialidad sino también con experiencia en el campo de la discapacidad. NOMENCLADOR PARA EL TRATAMIENTO ORTOPÉDICO- ORTODONCICOS DEL PACIENTE CON FISURA LABIO- ALVÉOLOPALATINA (“FLAP”) 
+XIII - ORTOPEDIA PREQUIRURGICA	13.07.00	CONSULTA FICHADO	Comprende diagnóstico, pronostico y plan de tratamiento en centro neonatológico o en consultorio y asesoramiento a los padres y/o grupo familiar de la patología existente.
+XIII - ORTOPEDIA PREQUIRURGICA	13.07.01	CONTROL DEL PACIENTE Y LA PLACA DE ORTESIS PALATINA	.
+XIII - ORTOPEDIA PREQUIRURGICA	13.07.02	IMPRESIÓN EN PACIENTES FISURADOS	.
+XIII - ORTOPEDIA PREQUIRURGICA	13.07.03	DISEÑO DEL MODELO DE PLACA DE ORTESIS PALATINA	.
+XIII - ORTOPEDIA PREQUIRURGICA	13.07.04	CONFECCION DE LA PLACA DE ORTESIS PALATINA	.
+XIII - ORTOPEDIA PREQUIRURGICA	13.07.05	INSTALACION DE LA PLACA DE ORTESIS PALATINA	.
+XIII - ORTOPEDIA PREQUIRURGICA	13.07.06	CONFECCION DEL TUTOR NASAL	Se codificará uno por tutor.
+XIII - ORTOPEDIA-ORTODONCIA	13.07.07	CONFECCION DE FERULA PRE- QUIRUGICA	 El tratamiento requerido en dentición temporaria, mixta y permanente se codificará en el CAPITULO VI. Los tratamientos protéticos necesarios se codificarán con el CAPITULO IV, al igual si es necesario implantes dentarios con el CAPITULO XI Comprende el diseño e instalación de férula previa a la cirugía de injerto alveolar. XIV- OTRAS PRESTACIONES /ACTIVIDADES 	14.00.01	ADMINISTRACION	Para confección de planilla 20 y 23, se colocará una vez al mes, en caso de jefe de centro de salud podrá codificarlo diariamente.
+XIV- OTRAS PRESTACIONES/ACTIVIDADES 	14.00.02	DOCENCIA	Se deberá colocar si tiene a cargo residente, concurrente, ó pasante se codifica una vez al mes.
+XIV- OTRAS PRESTACIONES/ACTIVIDADES 	14.01.00	ALTA ODONTOLOGICA	Se codificará cuando se haya terminado con el tratamiento odontológico.
+XIV- OTRAS PRESTACIONES/ACTIVIDADES 	14.02.01	BOCA SANA	.
+XIV- OTRAS PRESTACIONES/ACTIVIDADES 	14.03.00	PERICIA ODONTOLOGICA	.
+XIV- OTRAS PRESTACIONES/ACTIVIDADES 	14.04.00	PATOLOGIAS Y DISFUNCIONES DEL ATM	.
