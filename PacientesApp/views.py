@@ -66,6 +66,11 @@ def crear_paciente(request):
             paciente = form.save(commit=False)
             paciente.usuario_registro = request.user
             paciente.save()
+            form.save_m2m()  # Guardar relaciones many-to-many
+            
+            # Guardar antecedentes
+            form.save(usuario=request.user)
+            
             messages.success(request, f'Paciente {paciente.get_nombre_completo()} registrado exitosamente.')
             return redirect('PacientesApp:lista_pacientes')
     else:
@@ -85,13 +90,15 @@ def editar_paciente(request, pk):
     """Editar un paciente existente"""
     paciente = get_object_or_404(Paciente, pk=pk)
     
-    # Solo recepcionistas necesitan autorización para editar
-    # Odontólogos y administradores pueden editar directamente
-    
     if request.method == 'POST':
         form = PacienteForm(request.POST, instance=paciente)
         if form.is_valid():
-            form.save()
+            paciente = form.save(commit=False)
+            paciente.save()
+            
+            # Guardar antecedentes
+            form.save(usuario=request.user)
+            
             messages.success(request, f'Paciente {paciente.get_nombre_completo()} actualizado exitosamente.')
             return redirect('PacientesApp:lista_pacientes')
     else:
@@ -105,7 +112,6 @@ def editar_paciente(request, pk):
     }
     
     return render(request, 'PacientesApp/form_paciente.html', context)
-
 
 @staff_medico
 def ver_paciente(request, pk):

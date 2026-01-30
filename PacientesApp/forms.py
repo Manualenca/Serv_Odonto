@@ -1,16 +1,45 @@
 from django import forms
-from .models import Paciente
+from .models import Paciente, CategoriaAntecedente, AntecedentePaciente
 from datetime import date
 
 
 class PacienteForm(forms.ModelForm):
     """Formulario para crear y editar pacientes"""
     
+    # Campos para antecedentes médicos (se generan dinámicamente)
+    antecedentes_enfermedades = forms.ModelMultipleChoiceField(
+        queryset=CategoriaAntecedente.objects.filter(categoria='enfermedad_cronica', activo=True),
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
+        label='Enfermedades Crónicas'
+    )
+    
+    antecedentes_its = forms.ModelMultipleChoiceField(
+        queryset=CategoriaAntecedente.objects.filter(categoria='its', activo=True),
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
+        label='Infecciones de Transmisión Sexual (ITS)'
+    )
+    
+    antecedentes_alergias = forms.ModelMultipleChoiceField(
+        queryset=CategoriaAntecedente.objects.filter(categoria='alergia', activo=True),
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
+        label='Alergias'
+    )
+    
+    antecedentes_medicacion = forms.ModelMultipleChoiceField(
+        queryset=CategoriaAntecedente.objects.filter(categoria='medicacion', activo=True),
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
+        label='Medicación Actual'
+    )
+    
     class Meta:
         model = Paciente
         fields = ['nombre', 'apellido', 'dni', 'fecha_nacimiento', 'sexo',
                   'telefono', 'email', 'direccion', 'numero_afiliado', 
-                  'obra_social', 'observaciones', 'activo']
+                  'obra_social', 'observaciones_generales', 'activo']
         
         widgets = {
             'nombre': forms.TextInput(attrs={
@@ -51,15 +80,38 @@ class PacienteForm(forms.ModelForm):
             'obra_social': forms.Select(attrs={
                 'class': 'form-select'
             }),
-            'observaciones': forms.Textarea(attrs={
+            'observaciones_generales': forms.Textarea(attrs={
                 'class': 'form-control',
-                'rows': 4,
-                'placeholder': 'Alergias, antecedentes médicos, observaciones generales...'
+                'rows': 3,
+                'placeholder': 'Otras observaciones no categorizadas...'
             }),
             'activo': forms.CheckboxInput(attrs={
                 'class': 'form-check-input'
             }),
         }
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        
+        # Si estamos editando, cargar los antecedentes actuales
+        if self.instance.pk:
+            antecedentes_actuales = self.instance.antecedentes_medicos.filter(activo=True)
+            
+            self.fields['antecedentes_enfermedades'].initial = antecedentes_actuales.filter(
+                antecedente__categoria='enfermedad_cronica'
+            ).values_list('antecedente', flat=True)
+            
+            self.fields['antecedentes_its'].initial = antecedentes_actuales.filter(
+                antecedente__categoria='its'
+            ).values_list('antecedente', flat=True)
+            
+            self.fields['antecedentes_alergias'].initial = antecedentes_actuales.filter(
+                antecedente__categoria='alergia'
+            ).values_list('antecedente', flat=True)
+            
+            self.fields['antecedentes_medicacion'].initial = antecedentes_actuales.filter(
+                antecedente__categoria='medicacion'
+            ).values_list('antecedente', flat=True)
     
     def clean_dni(self):
         """Validar que el DNI sea único (excepto en edición)"""
@@ -101,9 +153,37 @@ class PacienteForm(forms.ModelForm):
         
         # Si tiene número de afiliado, debe tener obra social y viceversa
         if numero_afiliado and not obra_social:
-            self.add_error('obra_social', 'Debe especificar la obra social.')
+            self.add_error('obra_social', 'Debe seleccionar la obra social.')
         
         if obra_social and not numero_afiliado:
             self.add_error('numero_afiliado', 'Debe especificar el número de afiliado.')
         
         return cleaned_data
+    
+    def save(self, commit=True, usuario=None):
+        """Guardar el paciente y sus antecedentes"""
+        paciente = super().save(commit=commit)
+        
+        if commit:
+            # Desactivar todos los antecedentes actuales
+            AntecedentePaciente.objects.filter(paciente=paciente).update(activo=False)
+            
+            # Guardar antecedentes seleccionados
+            todos_antecedentes = []
+            todos_antecedentes.extend(self.cleaned_data.get('antecedentes_enfermedades', []))
+            todos_antecedentes.extend(self.cleaned_data.get('antecedentes_its', []))
+            todos_antecedentes.extend(self.cleaned_data.get('antecedentes_alergias', []))
+            todos_antecedentes.extend(self.cleaned_data.get('antecedentes_medicacion', []))
+            
+            for antecedente in todos_antecedentes:
+                AntecedentePaciente.objects.update_or_create(
+                    paciente=paciente,
+                    antecedente=antecedente,
+                    defaults={
+                        'activo': True,
+                        'usuario_registro': usuario
+                    }
+                )
+        
+        return paciente
+    
