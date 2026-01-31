@@ -40,7 +40,7 @@ class PacienteForm(forms.ModelForm):
         fields = ['nombre', 'apellido', 'dni', 'fecha_nacimiento', 'sexo',
                   'telefono', 'email', 'direccion', 'numero_afiliado', 
                   'obra_social', 'observaciones_generales', 'activo']
-        
+      
         widgets = {
             'nombre': forms.TextInput(attrs={
                 'class': 'form-control',

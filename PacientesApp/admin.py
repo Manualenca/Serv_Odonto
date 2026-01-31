@@ -41,10 +41,10 @@ class PacienteAdmin(admin.ModelAdmin):
             'fields': ('telefono', 'email', 'direccion')
         }),
         ('Obra Social', {
-            'fields': ('numero_afiliado', 'obra_social_id')
+            'fields': ('numero_afiliado', 'obra_social')
         }),
         ('Información Adicional', {
-            'fields': ('observaciones', 'activo')
+            'fields': ('observaciones_generales', 'activo')
         }),
         ('Auditoría', {
             'fields': ('fecha_registro', 'fecha_modificacion', 'usuario_registro'),
@@ -56,4 +56,3 @@ class PacienteAdmin(admin.ModelAdmin):
         if not change:  # Si es un nuevo objeto
             obj.usuario_registro = request.user
         super().save_model(request, obj, form, change)
-        

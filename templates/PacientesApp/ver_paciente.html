@@ -117,16 +117,120 @@
                     {% endif %}
                     
                     <!-- Observaciones -->
+                    <!-- Antecedentes Médicos -->
                     <h5 class="border-bottom pb-2 mb-3 mt-4">
-                        <i class="fas fa-notes-medical"></i> Observaciones Médicas
+                        <i class="fas fa-notes-medical"></i> Antecedentes Médicos
                     </h5>
-                    
-                    {% if paciente.observaciones %}
+
+                    {% if enfermedades or its or alergias or medicacion %}
+
+                        <!-- Enfermedades Crónicas -->
+                        {% if enfermedades %}
+                        <div class="mb-4">
+                            <h6 class="mb-3">
+                                <i class="fas fa-heartbeat text-danger"></i> Enfermedades Crónicas
+                            </h6>
+                            <div class="row">
+                                {% for ant in enfermedades %}
+                                <div class="col-md-6 mb-2">
+                                    <span class="badge bg-danger">
+                                        {{ ant.antecedente.nombre }}
+                                        {% if ant.antecedente.requiere_precaucion %}
+                                        <i class="fas fa-exclamation-triangle ms-1"></i>
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- ITS -->
+                        {% if its %}
+                        <div class="mb-4">
+                            <h6 class="mb-3">
+                                <i class="fas fa-shield-virus text-danger"></i> Infecciones de Transmisión Sexual (ITS)
+                            </h6>
+                            <div class="alert alert-warning small mb-3">
+                                <i class="fas fa-lock"></i> <strong>Información Confidencial</strong>
+                            </div>
+                            <div class="row">
+                                {% for ant in its %}
+                                <div class="col-md-6 mb-2">
+                                    <span class="badge bg-danger">
+                                        {{ ant.antecedente.nombre }}
+                                        {% if ant.antecedente.requiere_precaucion %}
+                                        <i class="fas fa-exclamation-triangle ms-1"></i>
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- Alergias -->
+                        {% if alergias %}
+                        <div class="mb-4">
+                            <h6 class="mb-3">
+                                <i class="fas fa-allergies text-danger"></i> Alergias
+                            </h6>
+                            <div class="alert alert-danger">
+                                <i class="fas fa-exclamation-triangle"></i> 
+                                <strong>¡ATENCIÓN!</strong> El paciente tiene las siguientes alergias:
+                            </div>
+                            <div class="row">
+                                {% for ant in alergias %}
+                                <div class="col-md-6 mb-2">
+                                    <span class="badge bg-danger fs-6">
+                                        {{ ant.antecedente.nombre }}
+                                        <i class="fas fa-exclamation-circle ms-1"></i>
+                                    </span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- Medicación Actual -->
+                        {% if medicacion %}
+                        <div class="mb-4">
+                            <h6 class="mb-3">
+                                <i class="fas fa-pills text-info"></i> Medicación Actual
+                            </h6>
+                            <div class="row">
+                                {% for ant in medicacion %}
+                                <div class="col-md-6 mb-2">
+                                    <span class="badge bg-info">
+                                        {{ ant.antecedente.nombre }}
+                                        {% if ant.antecedente.requiere_precaucion %}
+                                        <i class="fas fa-exclamation-triangle ms-1"></i>
+                                        {% endif %}
+                                    </span>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    {% else %}
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i>
+                            No se han registrado antecedentes médicos para este paciente.
+                        </div>
+                    {% endif %}
+
+                    <!-- Observaciones Generales -->
+                    <h5 class="border-bottom pb-2 mb-3 mt-4">
+                        <i class="fas fa-comment-medical"></i> Observaciones Generales
+                    </h5>
+
+                    {% if paciente.observaciones_generales %}
                     <div class="alert alert-secondary">
-                        {{ paciente.observaciones|linebreaks }}
+                        {{ paciente.observaciones_generales|linebreaks }}
                     </div>
                     {% else %}
-                    <p class="text-muted">Sin observaciones registradas</p>
+                    <p class="text-muted">Sin observaciones generales registradas</p>
                     {% endif %}
                     
                     <!-- Información del Sistema -->

@@ -113,13 +113,21 @@ def editar_paciente(request, pk):
     
     return render(request, 'PacientesApp/form_paciente.html', context)
 
+
 @staff_medico
 def ver_paciente(request, pk):
     """Ver detalles completos de un paciente"""
     paciente = get_object_or_404(Paciente, pk=pk)
     
+    # Obtener antecedentes organizados por categoría
+    antecedentes_activos = paciente.antecedentes_medicos.filter(activo=True).select_related('antecedente')
+    
     context = {
         'paciente': paciente,
+        'enfermedades': antecedentes_activos.filter(antecedente__categoria='enfermedad_cronica'),
+        'its': antecedentes_activos.filter(antecedente__categoria='its'),
+        'alergias': antecedentes_activos.filter(antecedente__categoria='alergia'),
+        'medicacion': antecedentes_activos.filter(antecedente__categoria='medicacion'),
     }
     
     return render(request, 'PacientesApp/ver_paciente.html', context)

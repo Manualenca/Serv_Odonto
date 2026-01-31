@@ -31,6 +31,8 @@ class ObraSocial(models.Model):
     
     def __str__(self):
         return self.nombre
+
+
 class CategoriaAntecedente(models.Model):
     """Categorías para organizar los antecedentes médicos"""
     
@@ -100,11 +102,11 @@ class AntecedentePaciente(models.Model):
         verbose_name='Antecedente'
     )
     
-    observaciones_generales = models.TextField(
+    observaciones = models.TextField(
         blank=True,
         null=True,
-        verbose_name='Observaciones Generales',
-        help_text='Otras observaciones no categorizadas'
+        verbose_name='Observaciones',
+        help_text='Detalles específicos sobre este antecedente'
     )
     
     fecha_diagnostico = models.DateField(
@@ -228,11 +230,11 @@ class Paciente(models.Model):
         help_text='Seleccione la obra social'
     )
     
-    observaciones = models.TextField(
+    observaciones_generales = models.TextField(
         blank=True,
         null=True,
-        verbose_name='Observaciones',
-        help_text='Alergias, antecedentes médicos, etc.'
+        verbose_name='Observaciones Generales',
+        help_text='Otras observaciones no categorizadas'
     )
     
     activo = models.BooleanField(
@@ -286,4 +288,4 @@ class Paciente(models.Model):
     
     def tiene_obra_social(self):
         """Verifica si el paciente tiene obra social"""
-        return bool(self.numero_afiliado and self.obra_social)  
+        return bool(self.numero_afiliado and self.obra_social)
