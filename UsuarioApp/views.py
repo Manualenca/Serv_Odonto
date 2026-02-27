@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from django.contrib import messages
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView
 from django.urls import reverse_lazy
@@ -8,6 +9,7 @@ from .decorators import solo_administrador, odontologo_o_admin,admin_o_odontolog
 from .mixins import SoloAdministradorMixin, OdontologoOAdminMixin
 from .models import Usuario
 from .forms import UsuarioCreacionForm, UsuarioEdicionForm, CambiarPasswordForm
+from django.shortcuts import redirect
 
 # Vista de inicio/dashboard
 @login_required
@@ -278,3 +280,10 @@ def ver_usuario(request, pk):
 def sesion_expirada(request):
     """Vista que se muestra cuando la sesión expira por inactividad"""
     return render(request, 'UsuarioApp/sesion_expirada.html')
+
+def logout_view(request):
+    """Cerrar sesión del usuario"""
+    logout(request)
+    messages.info(request, 'Has cerrado sesión exitosamente.')
+    return redirect('UsuarioApp:login')
+
