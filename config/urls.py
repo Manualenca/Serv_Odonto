@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('usuarios/', include('UsuarioApp.urls')),
     path('pacientes/', include('PacientesApp.urls')),
+    path('turnos/', include('TurnosApp.urls')),
 ]
 
 # Para servir archivos media en desarrollo
