@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #f5576c 0%, #c23616 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
+        .turno-info { background: white; padding: 20px; margin: 20px 0; border-left: 4px solid #c23616; border-radius: 5px; }
+        .info-row { margin: 10px 0; }
+        .label { font-weight: bold; color: #c23616; }
+        .footer { text-align: center; margin-top: 30px; color: #666; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>❌ Turno Cancelado</h1>
+        </div>
+        <div class="content">
+            <p>Hola <strong>{{ paciente.nombre }}</strong>,</p>
+            
+            <p>Te informamos que tu turno ha sido <strong>cancelado</strong>.</p>
+            
+            <div class="turno-info">
+                <h3 style="margin-top: 0; color: #c23616;">📋 Turno Cancelado</h3>
+                
+                <div class="info-row">
+                    <span class="label">📅 Fecha:</span> 
+                    {{ turno.fecha|date:"d/m/Y" }}
+                </div>
+                
+                <div class="info-row">
+                    <span class="label">🕐 Hora:</span> 
+                    {{ turno.hora|time:"H:i" }} hs
+                </div>
+                
+                <div class="info-row">
+                    <span class="label">👨‍⚕️ Profesional:</span> 
+                    Dr/a. {{ odontologo.get_full_name }}
+                </div>
+                
+                {% if motivo %}
+                <div class="info-row">
+                    <span class="label">📝 Motivo de cancelación:</span> 
+                    {{ motivo }}
+                </div>
+                {% endif %}
+            </div>
+            
+            <p>Si necesitás reprogramar tu turno, por favor contactanos.</p>
+            
+            <div class="footer">
+                <p>Clínica Odontológica</p>
+                <p>Este es un mensaje automático, por favor no respondas a este email.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -174,3 +174,23 @@ MEDIA_ROOT = BASE_DIR / 'media'
 LOGIN_URL = 'UsuarioApp:login'
 LOGIN_REDIRECT_URL = 'UsuarioApp:dashboard'
 LOGOUT_REDIRECT_URL = 'UsuarioApp:login'
+
+# ============================================
+# CONFIGURACIÓN DE EMAIL
+# ============================================
+
+# Para desarrollo/testing (imprime emails en consola)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Para producción (descomentá cuando tengas el servidor de email configurado)
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'  # O tu proveedor de email
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'tucorreo@gmail.com'  # Tu email
+# EMAIL_HOST_PASSWORD = 'tu_contraseña_de_aplicación'  # Contraseña de aplicación
+# DEFAULT_FROM_EMAIL = 'Sistema Odontológico <tucorreo@gmail.com>'
+
+# Configuración de recordatorios
+RECORDATORIO_EMAIL_HORAS_ANTES = 24  # Enviar recordatorio 24 horas antes
+RECORDATORIO_WHATSAPP_HORAS_ANTES = 24  # Para cuando implementemos WhatsApp

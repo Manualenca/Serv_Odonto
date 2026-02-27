@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+        .content { background: #f9f9f9; padding: 30px; border-radius: 0 0 10px 10px; }
+        .turno-info { background: white; padding: 20px; margin: 20px 0; border-left: 4px solid #667eea; border-radius: 5px; }
+        .info-row { margin: 10px 0; }
+        .label { font-weight: bold; color: #667eea; }
+        .footer { text-align: center; margin-top: 30px; color: #666; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🦷 Turno Confirmado</h1>
+        </div>
+        <div class="content">
+            <p>Hola <strong>{{ paciente.nombre }}</strong>,</p>
+            
+            <p>Tu turno ha sido confirmado exitosamente.</p>
+            
+            <div class="turno-info">
+                <h3 style="margin-top: 0; color: #667eea;">📋 Detalles del Turno</h3>
+                
+                <div class="info-row">
+                    <span class="label">📅 Fecha:</span> 
+                    {{ turno.fecha|date:"l, d 'de' F 'de' Y" }}
+                </div>
+                
+                <div class="info-row">
+                    <span class="label">🕐 Hora:</span> 
+                    {{ turno.hora|time:"H:i" }} hs
+                </div>
+                
+                <div class="info-row">
+                    <span class="label">👨‍⚕️ Profesional:</span> 
+                    Dr/a. {{ odontologo.get_full_name }}
+                </div>
+                
+                <div class="info-row">
+                    <span class="label">📝 Motivo:</span> 
+                    {{ turno.motivo_consulta }}
+                </div>
+                
+                <div class="info-row">
+                    <span class="label">⏱️ Duración estimada:</span> 
+                    {{ turno.duracion }} minutos
+                </div>
+            </div>
+            
+            <p><strong>⚠️ Importante:</strong></p>
+            <ul>
+                <li>Por favor, llegá 10 minutos antes de tu turno</li>
+                <li>Si no podés asistir, te pedimos que avises con anticipación</li>
+                <li>Traé tu DNI y credencial de obra social (si tenés)</li>
+            </ul>
+            
+            <div class="footer">
+                <p>Clínica Odontológica</p>
+                <p>Este es un mensaje automático, por favor no respondas a este email.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
