@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 # Apps Locales
     'UsuarioApp',
     'PacientesApp',
+    'TurnosApp',
 ]
 
 MIDDLEWARE = [
