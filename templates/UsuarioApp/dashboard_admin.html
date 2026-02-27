@@ -50,6 +50,24 @@
                 </div>
             </div>
         </div>
+
+        <!-- Turnos -->
+        <div class="col-md-4">
+            <div class="card card-custom text-center h-100">
+                <div class="card-body">
+                    <i class="fas fa-calendar-alt fa-3x text-success mb-3"></i>
+                    <h5 class="card-title">Turnos</h5>
+                    <p class="card-text">Administrá turnos y configurá horarios de atención.</p>
+                    <a href="{% url 'TurnosApp:lista_turnos' %}" class="btn btn-success btn-custom">
+                        <i class="fas fa-calendar-plus"></i> Gestionar Turnos
+                    </a>
+                    <a href="{% url 'TurnosApp:configuracion_agenda' %}" class="btn btn-outline-primary btn-custom mt-2">
+                        <i class="fas fa-cog"></i> Configuración
+                    </a>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 {% endblock %}

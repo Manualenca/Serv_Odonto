@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+
+{% block title %}Gestión de Turnos{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>
+            <i class="fas fa-calendar-alt"></i> Gestión de Turnos
+        </h1>
+        <div>
+            {% if user.es_administrador %}
+            <a href="{% url 'TurnosApp:configuracion_agenda' %}" class="btn btn-secondary btn-custom me-2">
+                <i class="fas fa-cog"></i> Configuración
+            </a>
+            {% endif %}
+            <a href="{% url 'TurnosApp:crear_turno' %}" class="btn btn-primary btn-custom">
+                <i class="fas fa-plus"></i> Nuevo Turno
+            </a>
+        </div>
+    </div>
+    
+    <!-- Filtros -->
+    <div class="card card-custom mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-2">
+                    <label class="form-label"><i class="fas fa-calendar-day"></i> Desde</label>
+                    {{ form.fecha_desde }}
+                </div>
+                
+                <div class="col-md-2">
+                    <label class="form-label"><i class="fas fa-calendar-day"></i> Hasta</label>
+                    {{ form.fecha_hasta }}
+                </div>
+                
+                {% if not user.es_odontologo %}
+                <div class="col-md-3">
+                    <label class="form-label"><i class="fas fa-user-md"></i> Odontólogo</label>
+                    {{ form.odontologo }}
+                </div>
+                {% endif %}
+                
+                <div class="col-md-3">
+                    <label class="form-label"><i class="fas fa-user"></i> Paciente</label>
+                    {{ form.paciente }}
+                </div>
+                
+                <div class="col-md-2">
+                    <label class="form-label"><i class="fas fa-info-circle"></i> Estado</label>
+                    {{ form.estado }}
+                </div>
+                
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-filter"></i> Filtrar
+                    </button>
+                    <a href="{% url 'TurnosApp:lista_turnos' %}" class="btn btn-outline-secondary">
+                        <i class="fas fa-times"></i> Limpiar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Tabla de turnos -->
+    <div class="card card-custom">
+        <div class="card-body">
+            {% if turnos %}
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Paciente</th>
+                            {% if not user.es_odontologo %}
+                            <th>Odontólogo</th>
+                            {% endif %}
+                            <th>Motivo</th>
+                            <th>Estado</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for turno in turnos %}
+                        <tr>
+                            <td>
+                                <strong>{{ turno.fecha|date:"d/m/Y" }}</strong><br>
+                                <small class="text-muted">{{ turno.fecha|date:"l" }}</small>
+                            </td>
+                            <td>
+                                <strong>{{ turno.hora|time:"H:i" }}</strong><br>
+                                <small class="text-muted">{{ turno.duracion }} min</small>
+                            </td>
+                            <td>
+                                <strong>{{ turno.paciente.get_nombre_completo }}</strong><br>
+                                <small class="text-muted">
+                                    <i class="fas fa-phone"></i> {{ turno.paciente.telefono }}
+                                </small>
+                            </td>
+                            {% if not user.es_odontologo %}
+                            <td>
+                                Dr/a. {{ turno.odontologo.get_full_name }}
+                            </td>
+                            {% endif %}
+                            <td>{{ turno.motivo_consulta }}</td>
+                            <td>
+                                {% if turno.estado == 'pendiente' %}
+                                <span class="badge bg-warning text-dark">
+                                    <i class="fas fa-clock"></i> Pendiente
+                                </span>
+                                {% elif turno.estado == 'confirmado' %}
+                                <span class="badge bg-info">
+                                    <i class="fas fa-check"></i> Confirmado
+                                </span>
+                                {% elif turno.estado == 'en_atencion' %}
+                                <span class="badge bg-primary">
+                                    <i class="fas fa-user-md"></i> En Atención
+                                </span>
+                                {% elif turno.estado == 'atendido' %}
+                                <span class="badge bg-success">
+                                    <i class="fas fa-check-circle"></i> Atendido
+                                </span>
+                                {% elif turno.estado == 'cancelado' %}
+                                <span class="badge bg-danger">
+                                    <i class="fas fa-times-circle"></i> Cancelado
+                                </span>
+                                {% elif turno.estado == 'ausente' %}
+                                <span class="badge bg-secondary">
+                                    <i class="fas fa-user-slash"></i> Ausente
+                                </span>
+                                {% endif %}
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group" role="group">
+                                    <a href="{% url 'TurnosApp:ver_turno' turno.pk %}" 
+                                       class="btn btn-sm btn-info" 
+                                       title="Ver detalles">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    
+                                    {% if turno.estado in 'pendiente,confirmado' %}
+                                    <a href="{% url 'TurnosApp:editar_turno' turno.pk %}" 
+                                       class="btn btn-sm btn-warning" 
+                                       title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    {% endif %}
+                                    
+                                    {% if turno.puede_confirmar %}
+                                    <a href="{% url 'TurnosApp:confirmar_turno' turno.pk %}" 
+                                       class="btn btn-sm btn-success" 
+                                       title="Confirmar"
+                                       onclick="return confirm('¿Confirmar este turno?')">
+                                        <i class="fas fa-check"></i>
+                                    </a>
+                                    {% endif %}
+                                    
+                                    {% if turno.estado in 'confirmado,pendiente' and user.es_odontologo and turno.odontologo == user %}
+                                    <a href="{% url 'TurnosApp:iniciar_atencion' turno.pk %}" 
+                                       class="btn btn-sm btn-primary" 
+                                       title="Iniciar atención">
+                                        <i class="fas fa-play"></i>
+                                    </a>
+                                    {% endif %}
+                                    
+                                    {% if turno.estado == 'en_atencion' and user.es_odontologo and turno.odontologo == user %}
+                                    <a href="{% url 'TurnosApp:finalizar_atencion' turno.pk %}" 
+                                       class="btn btn-sm btn-success" 
+                                       title="Finalizar atención">
+                                        <i class="fas fa-check-circle"></i>
+                                    </a>
+                                    {% endif %}
+                                    
+                                    {% if turno.puede_cancelar %}
+                                    <a href="{% url 'TurnosApp:cancelar_turno' turno.pk %}" 
+                                       class="btn btn-sm btn-danger" 
+                                       title="Cancelar">
+                                        <i class="fas fa-times"></i>
+                                    </a>
+                                    {% endif %}
+                                    
+                                    {% if turno.estado in 'confirmado,pendiente' %}
+                                    <a href="{% url 'TurnosApp:marcar_ausente' turno.pk %}" 
+                                       class="btn btn-sm btn-secondary" 
+                                       title="Marcar ausente"
+                                       onclick="return confirm('¿Marcar como ausente?')">
+                                        <i class="fas fa-user-slash"></i>
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-3">
+                <p class="text-muted">
+                    <i class="fas fa-info-circle"></i> 
+                    Total de turnos: <strong>{{ total_turnos }}</strong>
+                </p>
+            </div>
+            {% else %}
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i>
+                No se encontraron turnos con los filtros aplicados.
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

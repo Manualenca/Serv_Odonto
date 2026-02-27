@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle del Turno{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-custom">
+                <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2>
+                            <i class="fas fa-calendar-check"></i> Detalle del Turno
+                        </h2>
+                        <div>
+                            {% if turno.estado in 'pendiente,confirmado' %}
+                            <a href="{% url 'TurnosApp:editar_turno' turno.pk %}" 
+                               class="btn btn-warning btn-custom">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            {% endif %}
+                            <a href="{% url 'TurnosApp:lista_turnos' %}" 
+                               class="btn btn-secondary btn-custom">
+                                <i class="fas fa-arrow-left"></i> Volver
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Estado del turno -->
+                    <div class="alert 
+                        {% if turno.estado == 'pendiente' %}alert-warning
+                        {% elif turno.estado == 'confirmado' %}alert-info
+                        {% elif turno.estado == 'en_atencion' %}alert-primary
+                        {% elif turno.estado == 'atendido' %}alert-success
+                        {% elif turno.estado == 'cancelado' %}alert-danger
+                        {% elif turno.estado == 'ausente' %}alert-secondary
+                        {% endif %} mb-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <i class="fas 
+                                    {% if turno.estado == 'pendiente' %}fa-clock
+                                    {% elif turno.estado == 'confirmado' %}fa-check
+                                    {% elif turno.estado == 'en_atencion' %}fa-user-md
+                                    {% elif turno.estado == 'atendido' %}fa-check-circle
+                                    {% elif turno.estado == 'cancelado' %}fa-times-circle
+                                    {% elif turno.estado == 'ausente' %}fa-user-slash
+                                    {% endif %}"></i>
+                                Estado: <strong>{{ turno.get_estado_display|upper }}</strong>
+                            </div>
+                            <div>
+                                {% if turno.puede_confirmar %}
+                                <a href="{% url 'TurnosApp:confirmar_turno' turno.pk %}" 
+                                   class="btn btn-sm btn-success"
+                                   onclick="return confirm('¿Confirmar este turno?')">
+                                    <i class="fas fa-check"></i> Confirmar
+                                </a>
+                                {% endif %}
+                                
+                                {% if turno.estado in 'confirmado,pendiente' and user.es_odontologo and turno.odontologo == user %}
+                                <a href="{% url 'TurnosApp:iniciar_atencion' turno.pk %}" 
+                                   class="btn btn-sm btn-primary">
+                                    <i class="fas fa-play"></i> Iniciar Atención
+                                </a>
+                                {% endif %}
+                                
+                                {% if turno.estado == 'en_atencion' and user.es_odontologo and turno.odontologo == user %}
+                                <a href="{% url 'TurnosApp:finalizar_atencion' turno.pk %}" 
+                                   class="btn btn-sm btn-success">
+                                    <i class="fas fa-check-circle"></i> Finalizar
+                                </a>
+                                {% endif %}
+                                
+                                {% if turno.puede_cancelar %}
+                                <a href="{% url 'TurnosApp:cancelar_turno' turno.pk %}" 
+                                   class="btn btn-sm btn-danger">
+                                    <i class="fas fa-times"></i> Cancelar
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Información del Turno -->
+                    <h5 class="border-bottom pb-2 mb-3">
+                        <i class="fas fa-info-circle"></i> Información del Turno
+                    </h5>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>📅 Fecha:</strong>
+                            <p class="lead">{{ turno.fecha|date:"l, d 'de' F 'de' Y" }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>🕐 Hora:</strong>
+                            <p class="lead">{{ turno.hora|time:"H:i" }} hs</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>⏱️ Duración:</strong>
+                            <p>{{ turno.duracion }} minutos</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>🕐 Hora de Finalización:</strong>
+                            <p>{{ turno.get_hora_fin|time:"H:i" }} hs</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Información del Paciente -->
+                    <h5 class="border-bottom pb-2 mb-3 mt-4">
+                        <i class="fas fa-user"></i> Paciente
+                    </h5>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <strong>Nombre Completo:</strong>
+                            <p class="lead">
+                                {{ turno.paciente.get_nombre_completo }}
+                                <a href="{% url 'PacientesApp:ver_paciente' turno.paciente.pk %}" 
+                                   class="btn btn-sm btn-outline-primary ms-2">
+                                    <i class="fas fa-eye"></i> Ver Ficha
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>DNI:</strong>
+                            <p>{{ turno.paciente.dni }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Edad:</strong>
+                            <p>{{ turno.paciente.get_edad }} años</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Teléfono:</strong>
+                            <p><i class="fas fa-phone text-success"></i> {{ turno.paciente.telefono }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Email:</strong>
+                            <p>
+                                {% if turno.paciente.email %}
+                                <i class="fas fa-envelope text-info"></i> {{ turno.paciente.email }}
+                                {% else %}
+                                <span class="text-muted">No especificado</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                    
+                    {% if turno.paciente.tiene_obra_social %}
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Obra Social:</strong>
+                            <p>{{ turno.paciente.obra_social.nombre }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Nº Afiliado:</strong>
+                            <p>{{ turno.paciente.numero_afiliado }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Información del Odontólogo -->
+                    <h5 class="border-bottom pb-2 mb-3 mt-4">
+                        <i class="fas fa-user-md"></i> Profesional
+                    </h5>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Odontólogo:</strong>
+                            <p>Dr/a. {{ turno.odontologo.get_full_name }}</p>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>Matrícula:</strong>
+                            <p>{{ turno.odontologo.matricula_profesional|default:"No especificada" }}</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Detalles de la Consulta -->
+                    <h5 class="border-bottom pb-2 mb-3 mt-4">
+                        <i class="fas fa-notes-medical"></i> Detalles de la Consulta
+                    </h5>
+                    
+                    <div class="mb-3">
+                        <strong>Motivo de Consulta:</strong>
+                        <p class="lead">{{ turno.motivo_consulta }}</p>
+                    </div>
+                    
+                    {% if turno.observaciones %}
+                    <div class="mb-3">
+                        <strong>Observaciones:</strong>
+                        <div class="alert alert-secondary">
+                            {{ turno.observaciones|linebreaks }}
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Información del Sistema -->
+                    <h5 class="border-bottom pb-2 mb-3 mt-4">
+                        <i class="fas fa-calendar"></i> Información del Sistema
+                    </h5>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <strong>Registrado por:</strong>
+                            <p>{{ turno.usuario_registro.get_full_name|default:turno.usuario_registro.username }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <strong>Fecha de Registro:</strong>
+                            <p>{{ turno.fecha_creacion|date:"d/m/Y H:i" }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <strong>Última Modificación:</strong>
+                            <p>{{ turno.fecha_modificacion|date:"d/m/Y H:i" }}</p>
+                        </div>
+                    </div>
+                    
+                    {% if turno.fecha_confirmacion %}
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Fecha de Confirmación:</strong>
+                            <p>{{ turno.fecha_confirmacion|date:"d/m/Y H:i" }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if turno.fecha_atencion %}
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Fecha de Atención:</strong>
+                            <p>{{ turno.fecha_atencion|date:"d/m/Y H:i" }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Recordatorio Enviado:</strong>
+                            <p>
+                                {% if turno.recordatorio_enviado %}
+                                <span class="badge bg-success">
+                                    <i class="fas fa-check"></i> Sí
+                                </span>
+                                {% else %}
+                                <span class="badge bg-secondary">
+                                    <i class="fas fa-times"></i> No
+                                </span>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

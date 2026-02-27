@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}Configuración de Agenda{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>
+            <i class="fas fa-cog"></i> Configuración de Agenda
+        </h1>
+        <div>
+            <a href="{% url 'TurnosApp:crear_configuracion' %}" class="btn btn-primary btn-custom">
+                <i class="fas fa-plus"></i> Nueva Configuración
+            </a>
+            <a href="{% url 'TurnosApp:lista_turnos' %}" class="btn btn-secondary btn-custom">
+                <i class="fas fa-arrow-left"></i> Volver a Turnos
+            </a>
+        </div>
+    </div>
+    
+    <div class="alert alert-info mb-4">
+        <i class="fas fa-info-circle"></i>
+        Aquí podés configurar los horarios de atención de cada odontólogo por día de la semana.
+    </div>
+    
+    {% if configuraciones %}
+    <div class="card card-custom">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Odontólogo</th>
+                            <th>Día</th>
+                            <th>Horario</th>
+                            <th>Duración Turno</th>
+                            <th>Turnos Simultáneos</th>
+                            <th>Estado</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for config in configuraciones %}
+                        <tr>
+                            <td>
+                                <strong>Dr/a. {{ config.odontologo.get_full_name }}</strong>
+                            </td>
+                            <td>{{ config.get_dia_semana_display }}</td>
+                            <td>
+                                <strong>{{ config.hora_inicio|time:"H:i" }}</strong> a 
+                                <strong>{{ config.hora_fin|time:"H:i" }}</strong>
+                            </td>
+                            <td>{{ config.duracion_turno }} min</td>
+                            <td>{{ config.turnos_simultaneos }}</td>
+                            <td>
+                                {% if config.activo %}
+                                <span class="badge bg-success">
+                                    <i class="fas fa-check"></i> Activo
+                                </span>
+                                {% else %}
+                                <span class="badge bg-secondary">
+                                    <i class="fas fa-times"></i> Inactivo
+                                </span>
+                                {% endif %}
+                            </td>
+                            <td class="text-center">
+                                <div class="btn-group" role="group">
+                                    <a href="{% url 'TurnosApp:editar_configuracion' config.pk %}" 
+                                       class="btn btn-sm btn-warning" 
+                                       title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a href="{% url 'TurnosApp:eliminar_configuracion' config.pk %}" 
+                                       class="btn btn-sm btn-danger" 
+                                       title="Eliminar"
+                                       onclick="return confirm('¿Estás seguro de eliminar esta configuración?')">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-warning">
+        <i class="fas fa-exclamation-triangle"></i>
+        No hay configuraciones de agenda creadas todavía. Creá la primera configuración para comenzar a asignar turnos.
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
