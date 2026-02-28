@@ -11,7 +11,7 @@ class TurnoForm(forms.ModelForm):
     class Meta:
         model = Turno
         fields = ['paciente', 'odontologo', 'fecha', 'hora', 'duracion', 
-                  'motivo_consulta', 'observaciones', 'estado']
+                  'motivo_consulta', 'observaciones'] #Se sacó estado
         
         widgets = {
             'paciente': forms.Select(attrs={
@@ -49,9 +49,9 @@ class TurnoForm(forms.ModelForm):
                 'rows': 3,
                 'placeholder': 'Observaciones adicionales (opcional)'
             }),
-            'estado': forms.Select(attrs={
-                'class': 'form-select'
-            }),
+#            'estado': forms.Select(attrs={
+#               'class': 'form-select'
+#            }),
         }
     
     def __init__(self, *args, **kwargs):
@@ -67,8 +67,9 @@ class TurnoForm(forms.ModelForm):
         self.fields['paciente'].queryset = Paciente.objects.filter(activo=True)
         
         # Si es un turno nuevo, establecer estado por defecto
-        if not self.instance.pk:
-            self.fields['estado'].initial = 'pendiente'
+#        if not self.instance.pk:
+#            self.fields['estado'].widget = forms.HiddenInput()
+#            self.fields['estado'].initial = 'pendiente'
     
     def clean(self):
         cleaned_data = super().clean()
@@ -245,4 +246,12 @@ class FiltroTurnosForm(forms.Form):
         }),
         label='Estado'
     )
+class TurnoEditarForm(TurnoForm):
+    """Formulario para editar turnos (incluye estado)"""
     
+    class Meta(TurnoForm.Meta):
+        fields = TurnoForm.Meta.fields + ['estado']  # Agregar estado
+        widgets = {
+            **TurnoForm.Meta.widgets,
+            'estado': forms.Select(attrs={'class': 'form-select'}),
+        }

@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ titulo }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-custom">
+                <div class="card-body p-4">
+                    <h2 class="mb-4">
+                        <i class="fas fa-cog"></i> {{ titulo }}
+                    </h2>
+                    
+                    {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Error:</strong> Por favor corregí los errores a continuación.
+                        {{ form.non_field_errors }}
+                    </div>
+                    {% endif %}
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <!-- Información Básica -->
+                        <h5 class="border-bottom pb-2 mb-3">
+                            <i class="fas fa-info-circle"></i> Información Básica
+                        </h5>
+                        
+                        <div class="mb-3">
+                            <label for="{{ form.odontologo.id_for_label }}" class="form-label">
+                                Odontólogo <span class="text-danger">*</span>
+                            </label>
+                            {{ form.odontologo }}
+                            {% if form.odontologo.errors %}
+                            <div class="text-danger small">{{ form.odontologo.errors }}</div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="{{ form.dia_semana.id_for_label }}" class="form-label">
+                                Día de la Semana <span class="text-danger">*</span>
+                            </label>
+                            {{ form.dia_semana }}
+                            {% if form.dia_semana.errors %}
+                            <div class="text-danger small">{{ form.dia_semana.errors }}</div>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Horarios -->
+                        <h5 class="border-bottom pb-2 mb-3 mt-4">
+                            <i class="fas fa-clock"></i> Horarios de Atención
+                        </h5>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="{{ form.hora_inicio.id_for_label }}" class="form-label">
+                                    Hora de Inicio <span class="text-danger">*</span>
+                                </label>
+                                {{ form.hora_inicio }}
+                                {% if form.hora_inicio.errors %}
+                                <div class="text-danger small">{{ form.hora_inicio.errors }}</div>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                <label for="{{ form.hora_fin.id_for_label }}" class="form-label">
+                                    Hora de Fin <span class="text-danger">*</span>
+                                </label>
+                                {{ form.hora_fin }}
+                                {% if form.hora_fin.errors %}
+                                <div class="text-danger small">{{ form.hora_fin.errors }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <!-- Configuración de Turnos -->
+                        <h5 class="border-bottom pb-2 mb-3 mt-4">
+                            <i class="fas fa-calendar-alt"></i> Configuración de Turnos
+                        </h5>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="{{ form.duracion_turno.id_for_label }}" class="form-label">
+                                    Duración del Turno (minutos) <span class="text-danger">*</span>
+                                </label>
+                                {{ form.duracion_turno }}
+                                {% if form.duracion_turno.errors %}
+                                <div class="text-danger small">{{ form.duracion_turno.errors }}</div>
+                                {% endif %}
+                                <small class="text-muted">Entre 15 y 120 minutos</small>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="{{ form.turnos_simultaneos.id_for_label }}" class="form-label">
+                                    Turnos Simultáneos <span class="text-danger">*</span>
+                                </label>
+                                {{ form.turnos_simultaneos }}
+                                {% if form.turnos_simultaneos.errors %}
+                                <div class="text-danger small">{{ form.turnos_simultaneos.errors }}</div>
+                                {% endif %}
+                                <small class="text-muted">Pacientes que puede atender al mismo tiempo</small>
+                            </div>
+                        </div>
+                        
+                        <!-- Estado -->
+                        <h5 class="border-bottom pb-2 mb-3 mt-4">
+                            <i class="fas fa-toggle-on"></i> Estado
+                        </h5>
+                        
+                        <div class="form-check mb-3">
+                            {{ form.activo }}
+                            <label class="form-check-label" for="{{ form.activo.id_for_label }}">
+                                Configuración activa
+                            </label>
+                            {% if form.activo.errors %}
+                            <div class="text-danger small">{{ form.activo.errors }}</div>
+                            {% endif %}
+                        </div>
+                        
+                        <!-- Botones -->
+                        <div class="d-flex justify-content-between mt-4">
+                            <a href="{% url 'TurnosApp:configuracion_agenda' %}" class="btn btn-secondary btn-custom">
+                                <i class="fas fa-arrow-left"></i> Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-primary btn-custom">
+                                <i class="fas fa-save"></i> {{ boton }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -6,7 +6,7 @@ from django.utils import timezone
 from datetime import datetime, timedelta, date
 from UsuarioApp.decorators import staff_medico, solo_administrador, admin_o_odontologo_gestor
 from .models import Turno, ConfiguracionAgenda, BloqueoHorario
-from .forms import TurnoForm, ConfiguracionAgendaForm, BloqueoHorarioForm, FiltroTurnosForm
+from .forms import TurnoForm, TurnoEditarForm, ConfiguracionAgendaForm, BloqueoHorarioForm, FiltroTurnosForm
 from .notificaciones import enviar_confirmacion_turno, enviar_cancelacion_turno
 
 
@@ -16,35 +16,45 @@ from .notificaciones import enviar_confirmacion_turno, enviar_cancelacion_turno
 def lista_turnos(request):
     """Lista de turnos con filtros"""
     
-    # Fecha por defecto: semana actual
-    hoy = date.today()
-    inicio_semana = hoy - timedelta(days=hoy.weekday())
-    fin_semana = inicio_semana + timedelta(days=6)
-    
     # Obtener turnos
     turnos = Turno.objects.all().select_related('paciente', 'odontologo').order_by('fecha', 'hora')
     
-    # Aplicar filtros
-    form = FiltroTurnosForm(request.GET)
-    if form.is_valid():
-        fecha_desde = form.cleaned_data.get('fecha_desde') or inicio_semana
-        fecha_hasta = form.cleaned_data.get('fecha_hasta') or fin_semana
+    # Aplicar filtros del formulario
+    form = FiltroTurnosForm(request.GET or None)
+    
+    # Verificar si hay algún filtro aplicado
+    hay_filtros = any(request.GET.values())
+    
+    if form.is_valid() and hay_filtros:
+        fecha_desde = form.cleaned_data.get('fecha_desde')
+        fecha_hasta = form.cleaned_data.get('fecha_hasta')
         odontologo = form.cleaned_data.get('odontologo')
         paciente = form.cleaned_data.get('paciente')
         estado = form.cleaned_data.get('estado')
         
-        turnos = turnos.filter(fecha__range=[fecha_desde, fecha_hasta])
+        # Filtrar por rango de fechas solo si se especifica
+        if fecha_desde and fecha_hasta:
+            turnos = turnos.filter(fecha__range=[fecha_desde, fecha_hasta])
+        elif fecha_desde:
+            turnos = turnos.filter(fecha__gte=fecha_desde)
+        elif fecha_hasta:
+            turnos = turnos.filter(fecha__lte=fecha_hasta)
         
+        # Filtrar por odontólogo
         if odontologo:
             turnos = turnos.filter(odontologo=odontologo)
         
+        # Filtrar por paciente
         if paciente:
             turnos = turnos.filter(paciente=paciente)
         
+        # Filtrar por estado
         if estado:
             turnos = turnos.filter(estado=estado)
     else:
-        turnos = turnos.filter(fecha__range=[inicio_semana, fin_semana])
+        # Sin filtros: mostrar turnos de hoy en adelante (próximos turnos)
+        from datetime import date
+        turnos = turnos.filter(fecha__gte=date.today())
     
     # Si es odontólogo, solo ver sus turnos
     if request.user.es_odontologo():
@@ -58,7 +68,6 @@ def lista_turnos(request):
     
     return render(request, 'TurnosApp/lista_turnos.html', context)
 
-
 @staff_medico
 def crear_turno(request):
     """Crear un nuevo turno"""
@@ -67,11 +76,12 @@ def crear_turno(request):
         form = TurnoForm(request.POST)
         if form.is_valid():
             turno = form.save(commit=False)
+            turno.estado = 'pendiente' # Se agrega esto
             turno.usuario_registro = request.user
             turno.save()
             
             # Enviar email de confirmación
-            enviar_confirmacion_turno(turno)
+     #       enviar_confirmacion_turno(turno)
             
             messages.success(request, f'Turno creado exitosamente para {turno.paciente.get_nombre_completo()}.')
             return redirect('TurnosApp:lista_turnos')
@@ -99,13 +109,13 @@ def editar_turno(request, pk):
         return redirect('TurnosApp:lista_turnos')
     
     if request.method == 'POST':
-        form = TurnoForm(request.POST, instance=turno)
+        form = TurnoEditarForm(request.POST, instance=turno)  # <--- Cambiá a TurnoEditarForm
         if form.is_valid():
             form.save()
             messages.success(request, f'Turno actualizado exitosamente.')
             return redirect('TurnosApp:lista_turnos')
     else:
-        form = TurnoForm(instance=turno)
+        form = TurnoEditarForm(instance=turno)  # <--- Cambiá a TurnoEditarForm
     
     context = {
         'form': form,
